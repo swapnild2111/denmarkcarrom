@@ -1027,7 +1027,7 @@
           </div>
 
           <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="400">
+            <form action="https://formsubmit.co/carrom.denmark@gmail.com" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="400" target="_blank">
               <div class="row gy-4">
 
                 <div class="col-md-6">
@@ -1039,6 +1039,7 @@
                 </div>
 
                 <div class="col-md-12">
+                  <input type="hidden" name="_subject" value="New submission!">
                   <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
                 </div>
 
@@ -1050,6 +1051,8 @@
                   <div class="loading">Loading</div>
                   <div class="error-message"></div>
                   <div class="sent-message">Your message has been sent. Thank you!</div>
+                  <input type="hidden" name="_autoresponse" value="Thank you for contacting us">
+                  <input type="hidden" name="_template" value="table">
 
                   <button type="submit">Send Message</button>
                 </div>
@@ -1159,7 +1162,7 @@
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
