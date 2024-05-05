@@ -592,7 +592,7 @@
           </div>
 
           <div class="col-lg-8">
-            <form action="https://formsubmit.co/carrom.denmark@gmail.com" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="400" target="_blank">
+            <form action="https://usebasin.com/f/6c7096f96495" method="post" id="dkca-form-submit" class="php-email-form" data-aos="fade-up" data-aos-delay="400" target="_blank">
               <div class="row gy-4">
 
                 <div class="col-md-6">
@@ -618,6 +618,8 @@
                   <div class="sent-message">Your message has been sent. Thank you!</div>
                   <input type="hidden" name="_autoresponse" value="Thank you for contacting us">
                   <input type="hidden" name="_template" value="table">
+                  <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+                  <input type="hidden" name="g-recaptcha-version" value="v3">
 
                   <button type="submit">Send Message</button>
                 </div>
@@ -735,6 +737,22 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <!-- Google reCaptch v3 -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6Les66kUAAAAANyLrgkl7iuN4JUpNlB5upaMovI4"></script>
+
+  <script>
+    var myForm = document.getElementById('dkca-form-submit')
+    myForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6Les66kUAAAAANyLrgkl7iuN4JUpNlB5upaMovI4', {action: 'submit'}).then(function(token) {
+                document.getElementById('g-recaptcha-response').value = token;
+                myForm.submit();
+            });
+        });
+    });
+    </script>
 </body>
 
 </html>
