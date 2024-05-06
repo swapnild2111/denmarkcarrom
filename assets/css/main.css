@@ -6,8 +6,6 @@
 * License: https://bootstrapmade.com/license/
 */
 
-@import "compass/css3";
-
 /*--------------------------------------------------------------
 # Font & Color Variables
 # Help: https://bootstrapmade.com/color-system/
@@ -1536,6 +1534,11 @@ section,
   overflow: hidden;
 }
 
+.faq .faq-container .faq-item .faq-content div {
+  margin-bottom: 0;
+  overflow: hidden;
+}
+
 .faq .faq-container .faq-item .faq-toggle {
   position: absolute;
   top: 20px;
@@ -1836,45 +1839,35 @@ section,
 /* ------------------------------------------------
 # Events Section
 --------------------------------------------------*/
-
 .calendar {
-	 /* min-width: 350px;
-	 max-width: 80%;
-	 margin: 1em auto;
-	 padding: 1em;
-	 background: #eee;
-	 font-family: arial, helvetica, san-serif;
-	 box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.5);
-	 border-radius: 0.2em; */
+  font-family: var(--nav-font);
 }
- .calendar:last-child {
-	 /* border-top: 6px solid red; */
+.calendar h1 {
+	margin: 0 0 0.4em;
+	font-weight: bold;
+  color: var(--nav-color);
+
 }
- .calendar h1 {
-	 margin: 0 0 0.4em;
-	 font-weight: bold;
+.calendar .event {
+  color: var(--nav-color);
+	display: block;
+	padding: 0.1em;
+	transition: all 0.25s ease;
+	margin-bottom: 0.5em;
 }
- .calendar .event {
-	 color: #333;
-	 display: block;
-	 padding: 0.1em;
-	 transition: all 0.25s ease;
-	 margin-bottom: 0.5em;
+.calendar .event:hover {
+	text-decoration: none;
+  color: var(--nav-hover-color)
 }
- .calendar .event:hover {
-	 background: #d5d5d5;
-	 text-decoration: none;
-	 color: black;
-}
- .calendar .event_icon {
+.calendar .event_icon {
 	 width: 3em;
 	 float: left;
 	 margin-right: 0.75em;
 }
- .calendar .event_month, .calendar .event_day {
+.calendar .event_month, .calendar .event_day {
 	 text-align: center;
 }
- .calendar .event_month {
+.calendar .event_month {
 	 padding: 0.1em;
 	 margin-bottom: 0.15em;
 	 background: #c00000;
@@ -1883,7 +1876,7 @@ section,
 	 border-top-left-radius: 0.3em;
 	 border-top-right-radius: 0.3em;
 }
- .calendar .event_day {
+.calendar .event_day {
 	 border: 1px solid #999;
 	 background: white;
 	 color: black;
@@ -1892,89 +1885,11 @@ section,
 	 border-bottom-left-radius: 0.1em;
 	 border-bottom-right-radius: 0.1em;
 }
- .calendar .event_title {
-	 font-size: 1.1em;
+.calendar .event_title {
+	 font-size: 1.0em;
 	 height: 3em;
 	 display: table-cell;
 	 vertical-align: middle;
-}
- .calendar .btn {
-	 margin-top: 0.5em;
-	 width: 100%;
-	 font-size: 1.5em;
-}
-
-
-
-/*
-Players
-*/
-
-* {
-  font-family: Nunito, sans-serif;
-}
-
-.text-blk {
-  margin-top: 0px;
-  margin-right: 0px;
-  margin-bottom: 0px;
-  margin-left: 0px;
-  padding-top: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  line-height: 25px;
-}
-
-.responsive-cell-block {
-  min-height: 75px;
-}
-
-.responsive-container-block {
-  min-height: 75px;
-  height: fit-content;
-  width: 100%;
-  padding-top: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin-top: 0px;
-  margin-right: auto;
-  margin-bottom: 40px;
-  margin-left: auto;
-}
-
-.outer-container {
-  padding-top: 10px;
-  padding-right: 30px;
-  padding-bottom: 10px;
-  padding-left: 30px;
-}
-
-.inner-container {
-  max-width: 1320px;
-  margin-top: 50px;
-  margin-right: auto;
-  margin-bottom: 50px;
-  margin-left: auto;
-}
-
-.heading-text {
-  font-size: 48px;
-  line-height: 65px;
-  font-weight: 900;
-  margin-top: 0px;
-  margin-right: 0px;
-  margin-bottom: 5px;
-  margin-left: 0px;
-}
-
-.sub-heading-text {
-  color: rgb(122, 122, 122);
-  line-height: 30px;
 }
 
 /*--------------------------------------------------------------
