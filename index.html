@@ -30,6 +30,73 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <!-- Dynamic event generation -->
+  <script>
+    function fetchJSONData() {
+        fetch("./data/events.json")
+            .then((res) => {
+              if (!res.ok) {
+                  throw new Error
+                      (`HTTP error! Status: ${res.status}`);
+              }
+              return res.json();
+            })
+            .then((data) => {
+                // Soring keys which are event years and making descending order
+                var keys = Object.keys(data)
+                keys.sort();
+                keys.reverse();
+
+                for (let key of keys) {
+
+                  var event_calendar = document.createElement('div');
+                  if ( keys.indexOf(key) == 0 ) {
+                    event_calendar.className = 'faq-item faq-active'
+                  } else {
+                    event_calendar.className = 'faq-item'
+                  }
+                  event_calendar.id = key;
+                  document.getElementById('event_calendar').appendChild(event_calendar);
+
+                  var heading = '<h3>' + key + '</h3>';
+                  document.getElementById(key).innerHTML += heading;
+
+                  var calendar = document.createElement('div');
+                  calendar.className = 'faq-content calendar';
+                  calendar.id = key + '-content';
+                  document.getElementById(key).appendChild(calendar);
+
+                  for (var i = 0; i < data[key].length; i++) {
+                      var date = data[key][i].date;
+                      var month = data[key][i].month;
+                      var title = data[key][i].title;
+                      var link = data[key][i].link;
+
+                      var event =
+                          '<a href="' + link + '" target="_blank" class="event clearfix">' +
+                          '<div class="event_icon"><div class="event_month">' + month + '</div>' +
+                          '<div class="event_day">' + date + '</div>' +
+                          '</div><div class="event_title">' + title + '</div></a>';
+                      document.getElementById(key + '-content').innerHTML += event;
+                  }
+                  var icon = document.createElement('i');
+                  icon.className = 'faq-toggle bi bi-chevron-right';
+                  document.getElementById(key).appendChild(icon);
+
+                  if ( data[key].length == 0 ) {
+                    document.getElementById(key + '-content').classList.remove('calendar');
+                    var no_data = '<p>No events found.</p>'
+                    document.getElementById(key + '-content').innerHTML += no_data;
+                  }
+
+              }
+            })
+            .catch((error) =>
+                   console.error("Unable to fetch data:", error));
+    }
+    fetchJSONData();
+  </script>
+
   <!-- =======================================================
   * Template Name: QuickStart
   * Template URL: https://bootstrapmade.com/quickstart-bootstrap-startup-website-template/
@@ -204,72 +271,6 @@
         <h2>Carrom Events Schedule</h2>
         <p>Denmark Carrom Association organizes tournaments all year around.</p>
       </div>
-
-      <script>
-        function fetchJSONData() {
-            fetch("./data/events.json")
-                .then((res) => {
-                  if (!res.ok) {
-                      throw new Error
-                          (`HTTP error! Status: ${res.status}`);
-                  }
-                  return res.json();
-                })
-                .then((data) => {
-                    // Soring keys which are event years and making descending order
-                    var keys = Object.keys(data)
-                    keys.sort();
-                    keys.reverse();
-
-                    for (let key of keys) {
-
-                      var event_calendar = document.createElement('div');
-                      if ( keys.indexOf(key) == 0 ) {
-                        event_calendar.className = 'faq-item faq-active'
-                      } else {
-                        event_calendar.className = 'faq-item'
-                      }
-                      event_calendar.id = key;
-                      document.getElementById('event_calendar').appendChild(event_calendar);
-
-                      var heading = '<h3>' + key + '</h3>';
-                      document.getElementById(key).innerHTML += heading;
-
-                      var calendar = document.createElement('div');
-                      calendar.className = 'faq-content calendar';
-                      calendar.id = key + '-content';
-                      document.getElementById(key).appendChild(calendar);
-
-                      for (var i = 0; i < data[key].length; i++) {
-                          var date = data[key][i].date;
-                          var month = data[key][i].month;
-                          var title = data[key][i].title;
-                          var link = data[key][i].link;
-
-                          var event =
-                              '<a href="' + link + '" target="_blank" class="event clearfix">' +
-                              '<div class="event_icon"><div class="event_month">' + month + '</div>' +
-                              '<div class="event_day">' + date + '</div>' +
-                              '</div><div class="event_title">' + title + '</div></a>';
-                          document.getElementById(key + '-content').innerHTML += event;
-                      }
-                      var icon = document.createElement('i');
-                      icon.className = 'faq-toggle bi bi-chevron-right';
-                      document.getElementById(key).appendChild(icon);
-
-                      if ( data[key].length == 0 ) {
-                        document.getElementById(key + '-content').classList.remove('calendar');
-                        var no_data = '<p>No events found.</p>'
-                        document.getElementById(key + '-content').innerHTML += no_data;
-                      }
-
-                  }
-                })
-                .catch((error) =>
-                       console.error("Unable to fetch data:", error));
-        }
-        fetchJSONData();
-      </script>
 
       <div class="container">
         <div class="row justify-content-center">
