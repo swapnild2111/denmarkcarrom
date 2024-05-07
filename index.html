@@ -205,47 +205,76 @@
         <p>Denmark Carrom Association organizes tournaments all year around.</p>
       </div>
 
+      <script>
+        function fetchJSONData() {
+            fetch("./data/events.json")
+                .then((res) => {
+                  if (!res.ok) {
+                      throw new Error
+                          (`HTTP error! Status: ${res.status}`);
+                  }
+                  return res.json();
+                })
+                .then((data) => {
+                    // Soring keys which are event years and making descending order
+                    var keys = Object.keys(data)
+                    keys.sort();
+                    keys.reverse();
+
+                    for (let key of keys) {
+
+                      var event_calendar = document.createElement('div');
+                      if ( keys.indexOf(key) == 0 ) {
+                        event_calendar.className = 'faq-item faq-active'
+                      } else {
+                        event_calendar.className = 'faq-item'
+                      }
+                      event_calendar.id = key;
+                      document.getElementById('event_calendar').appendChild(event_calendar);
+
+                      var heading = '<h3>' + key + '</h3>';
+                      document.getElementById(key).innerHTML += heading;
+
+                      var calendar = document.createElement('div');
+                      calendar.className = 'faq-content calendar';
+                      calendar.id = key + '-content';
+                      document.getElementById(key).appendChild(calendar);
+
+                      for (var i = 0; i < data[key].length; i++) {
+                          var date = data[key][i].date;
+                          var month = data[key][i].month;
+                          var title = data[key][i].title;
+                          var link = data[key][i].link;
+
+                          var event =
+                              '<a href="' + link + '" target="_blank" class="event clearfix">' +
+                              '<div class="event_icon"><div class="event_month">' + month + '</div>' +
+                              '<div class="event_day">' + date + '</div>' +
+                              '</div><div class="event_title">' + title + '</div></a>';
+                          document.getElementById(key + '-content').innerHTML += event;
+                      }
+                      var icon = document.createElement('i');
+                      icon.className = 'faq-toggle bi bi-chevron-right';
+                      document.getElementById(key).appendChild(icon);
+
+                      if ( data[key].length == 0 ) {
+                        document.getElementById(key + '-content').classList.remove('calendar');
+                        var no_data = '<p>No events found.</p>'
+                        document.getElementById(key + '-content').innerHTML += no_data;
+                      }
+
+                  }
+                })
+                .catch((error) =>
+                       console.error("Unable to fetch data:", error));
+        }
+        fetchJSONData();
+      </script>
+
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
-            <div class="faq-container">
-              <div class="faq-item faq-active">
-                <h3>2024</h3>
-                <div class="faq-content">
-                  <div class="calendar">
-                    <a href="https://www.facebook.com/events/1078738533177062" target="_blank" class="event clearfix">
-                      <div class="event_icon">
-                        <div class="event_month">MAR</div>
-                        <div class="event_day">16</div>
-                      </div>
-                      <div class="event_title">Denmark Open Carrom Tournament</div>
-                    </a>
-                    <a href="https://www.facebook.com/events/7481526351939451" target="_blank" class="event clearfix">
-                      <div class="event_icon">
-                        <div class="event_month">APR</div>
-                        <div class="event_day">20</div>
-                      </div>
-                      <div class="event_title">Facebook Open event for new players</div>
-                    </a>
-                  </div>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div>
-              <div class="faq-item">
-                <h3>2023</h3>
-                <div class="faq-content">
-                  <p>No events found.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div>
-              <div class="faq-item">
-                <h3>2022</h3>
-                <div class="faq-content">
-                  <p>No events found.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div>
-            </div>
+            <div id="event_calendar" class="faq-container"></div>
           </div>
         </div>
       </div>
@@ -394,20 +423,18 @@
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <div class="team-member d-flex align-items-start">
-              <div class="pic"><img loading="lazy" src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img loading="lazy" src="assets/img/team/Swapnil.jpeg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Swapnil Deshpande</h4>
                 <span>President</span>
                 <p>International Carrom Champion</p>
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""> <i class="bi bi-linkedin"></i> </a>
+                  <a href="https://www.facebook.com/swapnil.deshpande.2111/"><i class="bi bi-facebook"></i></a>
+                  <a href="https://www.linkedin.com/in/swapnil-deshpande/"> <i class="bi bi-linkedin"></i> </a>
                 </div>
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <div class="team-member d-flex align-items-start">
@@ -417,48 +444,42 @@
                 <span>Vice President</span>
                 <p>National Carrom Champion</p>
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href="https://www.facebook.com/yuvaraj.eswaramoorthy"><i class="bi bi-facebook"></i></a>
                   <a href=""> <i class="bi bi-linkedin"></i> </a>
                 </div>
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
             <div class="team-member d-flex align-items-start">
-              <div class="pic"><img loading="lazy" src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img loading="lazy" src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Antonio Sylvester</h4>
                 <span>Auditor</span>
                 <p>International Carrom Champion</p>
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href="https://www.facebook.com/antonio.sylvester.14"><i class="bi bi-facebook"></i></a>
                   <a href=""> <i class="bi bi-linkedin"></i> </a>
                 </div>
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
             <div class="team-member d-flex align-items-start">
-              <div class="pic"><img loading="lazy" src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img loading="lazy" src="assets/img/team/manas.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Manas Dalvi</h4>
                 <span>Treasurer</span>
                 <p>National Carrom Champion</p>
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href="https://www.facebook.com/manas.dalvi3"><i class="bi bi-facebook"></i></a>
                   <a href=""> <i class="bi bi-linkedin"></i> </a>
                 </div>
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div>
 
         </div>
 
@@ -473,7 +494,7 @@
         <div class="row gy-4 justify-content-between features-item">
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <img src="assets/img/team/team.jpg" class="img-fluid" alt="">
+            <img src="assets/img/team/team.jpeg" class="img-fluid" alt="">
           </div>
 
           <div class="col-lg-5 d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
