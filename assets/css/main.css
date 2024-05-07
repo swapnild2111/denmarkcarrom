@@ -1527,6 +1527,7 @@ section,
   transition: 0.3s ease-in-out;
   visibility: hidden;
   opacity: 0;
+  max-height: 0;
 }
 
 .faq .faq-container .faq-item .faq-content p {
@@ -1537,6 +1538,7 @@ section,
 .faq .faq-container .faq-item .faq-content div {
   margin-bottom: 0;
   overflow: hidden;
+  transition: 0.1s;
 }
 
 .faq .faq-container .faq-item .faq-toggle {
@@ -1567,6 +1569,8 @@ section,
   visibility: visible;
   opacity: 1;
   padding-top: 10px;
+  max-height: fit-content;
+  transition: all 0.3s ease-in;
 }
 
 .faq .faq-container .faq-active .faq-toggle {
