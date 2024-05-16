@@ -30,6 +30,83 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <!-- Dynamic event generation -->
+  <script>
+    function fetchJSONData() {
+        fetch("./data/events.json")
+            .then((res) => {
+              if (!res.ok) {
+                  throw new Error
+                      (`HTTP error! Status: ${res.status}`);
+              }
+              return res.json();
+            })
+            .then((data) => {
+                // Soring keys which are event years and making descending order
+                var keys = Object.keys(data)
+                keys.sort();
+                keys.reverse();
+
+                for (let key of keys) {
+
+
+                  var event_calendar = document.createElement('div');
+                  event_calendar.id = 'row'
+                  event_calendar.className = 'row gy-4'
+                  document.getElementById('event_calendar').appendChild(event_calendar);
+
+                  var event_year = document.createElement('div');
+                  event_year.id = key
+                  event_year.className = 'col-lg-4'
+                  document.getElementById('row').appendChild(event_year);
+
+                  var event_calendar_heading = document.createElement('div')
+                  event_calendar_heading.id = key + "-list"
+                  event_calendar_heading.className = "recent-activities card"
+                  document.getElementById(key).appendChild(event_calendar_heading);
+
+                  var heading = '<div class="card-header"><h4>' + key + '</h4></div>';
+                  document.getElementById(key + '-list').innerHTML += heading;
+
+                  var calendar = document.createElement('div');
+                  calendar.className = 'card-body no-padding';
+                  calendar.id = key + '-content';
+                  document.getElementById(key + '-list').appendChild(calendar);
+
+                  for (var i = 0; i < data[key].length; i++) {
+                      var date = data[key][i].date;
+                      var month = data[key][i].month;
+                      var title = data[key][i].title;
+                      var link = data[key][i].link;
+                      var desc = data[key][i].description;
+
+                      var event =
+                          '<div class="item row">' +
+                          '<div class="col-3">' +
+                          '<div class="calendar event_icon">' +
+                          '<div class="event_month">' + month + '</div>' +
+                          '<div class="event_day">' + date + '</div>' +
+                          '</div></div><div class="col-8 content">' +
+                          '<a href="' + link + '" target="_blank"><h5>Denmark Open Carrom Tournament</h5></a>' +
+                          '<p>' + desc + '</p>' +
+                          '</div></div>'
+                      document.getElementById(key + '-content').innerHTML += event;
+                  }
+
+                  if ( data[key].length == 0 ) {
+                    document.getElementById(key + '-content').classList.remove('calendar');
+                    var no_data = '<div class="item row">No events available</div>'
+                    document.getElementById(key + '-content').innerHTML += no_data;
+                  }
+
+              }
+            })
+            .catch((error) =>
+                   console.error("Unable to fetch data:", error));
+    }
+    fetchJSONData();
+  </script>
+
   <!-- =======================================================
   * Template Name: QuickStart
   * Template URL: https://bootstrapmade.com/quickstart-bootstrap-startup-website-template/
@@ -79,117 +156,16 @@
 
     <br/><br/>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
-
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Gallery</h2>
-            <p>All our event photos</p>
-        </div><!-- End Section Title -->
-
-        <div class="container-fluid isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <div class="row col-lg-12 col-md-12" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="col-lg-3 col-md-6 portfolio-item isotope-item filter-app">
-              <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-                <li data-filter="*" class="filter-active">All</li>
-                <li data-filter=".filter-app">Denmark Open 2024</li>
-                <li data-filter=".filter-product">Copenhagen regional 2023</li>
-                <li data-filter=".filter-branding">Fadebook event 2024</li>
-              </ul><!-- End Portfolio Filters -->
-            </div>
-
-            <div class="col-lg-9 col-md-9">
-              <div class="isotope-container">
-                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                    <img src="assets/img/gallery/masonry-portfolio-1.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                    <h4>App 1</h4>
-                    <p>Lorem ipsum, dolor sit</p>
-                    <a href="assets/img/gallery/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                    </div>
-                </div><!-- End Portfolio Item -->
-
-                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                    <img src="assets/img/gallery/masonry-portfolio-2.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                    <h4>Product 1</h4>
-                    <p>Lorem ipsum, dolor sit</p>
-                    <a href="assets/img/gallery/masonry-portfolio-2.jpg" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                    </div>
-                </div><!-- End Portfolio Item -->
-
-                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-                    <img src="assets/img/gallery/masonry-portfolio-3.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                    <h4>Branding 1</h4>
-                    <p>Lorem ipsum, dolor sit</p>
-                    <a href="assets/img/gallery/masonry-portfolio-3.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                    </div>
-                </div><!-- End Portfolio Item -->
-
-                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                    <img src="assets/img/gallery/masonry-portfolio-4.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                    <h4>App 2</h4>
-                    <p>Lorem ipsum, dolor sit</p>
-                    <a href="assets/img/gallery/masonry-portfolio-4.jpg" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                    </div>
-                </div><!-- End Portfolio Item -->
-
-                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                    <img src="assets/img/gallery/masonry-portfolio-5.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                    <h4>Product 2</h4>
-                    <p>Lorem ipsum, dolor sit</p>
-                    <a href="assets/img/gallery/masonry-portfolio-5.jpg" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                    </div>
-                </div><!-- End Portfolio Item -->
-
-                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-                    <img src="assets/img/gallery/masonry-portfolio-6.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                    <h4>Branding 2</h4>
-                    <p>Lorem ipsum, dolor sit</p>
-                    <a href="assets/img/gallery/masonry-portfolio-6.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                    </div>
-                </div><!-- End Portfolio Item -->
-
-                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                    <img src="assets/img/gallery/masonry-portfolio-7.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                    <h4>App 3</h4>
-                    <p>Lorem ipsum, dolor sit</p>
-                    <a href="assets/img/gallery/masonry-portfolio-7.jpg" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                    </div>
-                </div><!-- End Portfolio Item -->
-
-                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                    <img src="assets/img/gallery/masonry-portfolio-8.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                    <h4>Product 3</h4>
-                    <p>Lorem ipsum, dolor sit</p>
-                    <a href="assets/img/gallery/masonry-portfolio-8.jpg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                    </div>
-                </div><!-- End Portfolio Item -->
-
-                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-                    <img src="assets/img/gallery/masonry-portfolio-9.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                    <h4>Branding 3</h4>
-                    <p>Lorem ipsum, dolor sit</p>
-                    <a href="assets/img/gallery/masonry-portfolio-9.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                    </div>
-                </div><!-- End Portfolio Item -->
-
-              </div><!-- End Portfolio Container -->
-              </div>
-          </div>
-        </div>
-
-    </section><!-- /Portfolio Section -->
+    <!-- Events Section -->
+    <section id="events" class="features section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Carrom Events Schedule</h2>
+        <p>Denmark Carrom Association organizes tournaments all year around.</p>
+      </div>
+      <div class="container">
+        <div id="event_calendar"></div>
+      </div>
+    </section>
 
   </main>
 

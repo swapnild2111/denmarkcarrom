@@ -4,15 +4,17 @@
             "date": "16",
             "month": "March",
             "title": "Denmark Open Carrom Tournament",
-            "link": "https://www.facebook.com/events/1078738533177062"
+            "link": "https://www.facebook.com/events/1078738533177062",
+            "description": "Open carrom tournament to invite all players in Europe"
         },
         {
             "date": "20",
             "month": "April",
             "title": "Facebook Open event for new players",
-            "link": "https://www.facebook.com/events/7481526351939451"
+            "link": "https://www.facebook.com/events/7481526351939451",
+            "description": "Welcoming new players from Facebook for carrom catch up & play"
         }
     ],
-    "2023":[],
+    "2023": [],
     "2022": []
 }

@@ -30,73 +30,6 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- Dynamic event generation -->
-  <script>
-    function fetchJSONData() {
-        fetch("./data/events.json")
-            .then((res) => {
-              if (!res.ok) {
-                  throw new Error
-                      (`HTTP error! Status: ${res.status}`);
-              }
-              return res.json();
-            })
-            .then((data) => {
-                // Soring keys which are event years and making descending order
-                var keys = Object.keys(data)
-                keys.sort();
-                keys.reverse();
-
-                for (let key of keys) {
-
-                  var event_calendar = document.createElement('div');
-                  if ( keys.indexOf(key) == 0 ) {
-                    event_calendar.className = 'faq-item faq-active'
-                  } else {
-                    event_calendar.className = 'faq-item'
-                  }
-                  event_calendar.id = key;
-                  document.getElementById('event_calendar').appendChild(event_calendar);
-
-                  var heading = '<h3>' + key + '</h3>';
-                  document.getElementById(key).innerHTML += heading;
-
-                  var calendar = document.createElement('div');
-                  calendar.className = 'faq-content calendar';
-                  calendar.id = key + '-content';
-                  document.getElementById(key).appendChild(calendar);
-
-                  for (var i = 0; i < data[key].length; i++) {
-                      var date = data[key][i].date;
-                      var month = data[key][i].month;
-                      var title = data[key][i].title;
-                      var link = data[key][i].link;
-
-                      var event =
-                          '<a href="' + link + '" target="_blank" class="event clearfix">' +
-                          '<div class="event_icon"><div class="event_month">' + month + '</div>' +
-                          '<div class="event_day">' + date + '</div>' +
-                          '</div><div class="event_title">' + title + '</div></a>';
-                      document.getElementById(key + '-content').innerHTML += event;
-                  }
-                  var icon = document.createElement('i');
-                  icon.className = 'faq-toggle bi bi-chevron-right';
-                  document.getElementById(key).appendChild(icon);
-
-                  if ( data[key].length == 0 ) {
-                    document.getElementById(key + '-content').classList.remove('calendar');
-                    var no_data = '<p>No events found.</p>'
-                    document.getElementById(key + '-content').innerHTML += no_data;
-                  }
-
-              }
-            })
-            .catch((error) =>
-                   console.error("Unable to fetch data:", error));
-    }
-    fetchJSONData();
-  </script>
-
   <!-- =======================================================
   * Template Name: QuickStart
   * Template URL: https://bootstrapmade.com/quickstart-bootstrap-startup-website-template/
@@ -113,25 +46,24 @@
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
         <img src="assets/img/logo.png" alt="">
-        <!-- <h1 class="sitename">DKCA</h1> -->
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.html#hero" class="">Home</a></li>
           <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#events">Events</a></li>
+          <li><a href="events.html">Events</a></li>
           <li><a href="index.html#services">Programs</a></li>
           <!-- <li><a href="index.html#pricing">Pricing</a></li> -->
           <li><a href="index.html#team">Team</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li class="dropdown"><a href="learn.html"><span>Learn</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <!-- <li><a href="gallery.html">Gallery</a></li> -->
+          <!-- <li class="dropdown"><a href="learn.html"><span>Learn</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="learn.html#what">What is Carrom?</a></li>
               <li><a href="learn.html#how">How to play?</a></li>
               <li><a href="learn.html#videos">Videos</a></li>
             </ul>
-          </li>
+          </li> -->
           <li><a href="index.html#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -215,18 +147,15 @@
         <div class="row gy-4">
 
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
-            <p class="who-we-are">Who We Are</p>
-            <h3>Goal</h3>
-            <p class="fst-italic">
-              Denmark Carrom Association enables Denmark residents to play carrom tournaments in European union countries & international level. We are a community of carrom enthusiasts who help new players understand the game and improve their skills through regular play. Our Association is dedicated to promoting carrom as a fun and competitive sport.
-            </p>
-            <h3>Mission</h3>
-            <p class="fst-italic">
-              Our mission is to provide a platform for carrom players in Denmark to showcase their skills and compete at national and international levels. We strive to create a welcoming and inclusive community where players of all levels can learn, improve and enjoy the game of carrom.
+            <!-- <p class="who-we-are">Who We Are</p> -->
+            <h3>Who We Are</h3>
+            <p>
+              Denmark Carrom Association enables Denmark residents to play carrom tournaments in European union countries & international level. We are a community of carrom enthusiasts who help new players understand the game and improve their skills. Our Association is dedicated to promoting carrom as a fun and competitive sport.
+              We provide platform for carrom players in Denmark to showcase their skills and compete at national and international levels. We strive to create a welcoming and inclusive community where players of all levels can learn, improve and enjoy the game of carrom.
             </p>
             <ul>
-              <li><i class="bi bi-check-circle"></i> <span>Regular carrom play & trainings</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Provide National Ranking</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>On-demand carrom coaching for kids & adults</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Regular Carrom Tournaments for National Ranking</span></li>
               <li><i class="bi bi-check-circle"></i> <span>Participate in International tournaments</span></li>
             </ul>
             <!-- <a href="#" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a> -->
@@ -255,22 +184,6 @@
 
       </div>
     </section><!-- /About Section -->
-
-    <!-- Faq Section -->
-    <section id="events" class="faq section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Carrom Events Schedule</h2>
-        <p>Denmark Carrom Association organizes tournaments all year around.</p>
-      </div>
-
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
-            <div id="event_calendar" class="faq-container"></div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Services Section -->
     <section id="services" class="services section">
@@ -638,7 +551,7 @@
           <ul>
             <li><a href="index.html#hero" class="">Home</a></li>
             <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#events">Events</a></li>
+            <li><a href="events.html">Events</a></li>
             <li><a href="index.html#services">Programs</a></li>
             <!-- <li><a href="index.html#pricing">Pricing</a></li> -->
             <li><a href="index.html#team">Team</a></li>
@@ -715,17 +628,6 @@
             });
         });
     });
-    </script>
-
-    <script>
-      /**
-       * Frequently Asked Questions Toggle
-       */
-      document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqItem) => {
-        faqItem.addEventListener('click', () => {
-          faqItem.parentNode.classList.toggle('faq-active');
-        });
-      });
     </script>
 
     <!-- Subscription popup from mailchimp -->
