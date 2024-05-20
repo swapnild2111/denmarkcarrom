@@ -37,5 +37,7 @@ https://carrom.dk
 
 # Special recognization
 Thank you for HTML/bootstrap theme: https://bootstrapmade.com/quickstart-bootstrap-startup-website-template/
+AI rewording tool: https://ahrefs.com/writing-tools/rewording-tool
+Youtube thumbnail: https://www.get-youtube-thumbnail.com/
 Icons: https://fontawesome.com/
 License: https://bootstrapmade.com/license/
