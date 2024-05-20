@@ -1015,8 +1015,9 @@ section,
 /*--------------------------------------------------------------
 # Learning through videos Section
 --------------------------------------------------------------*/
-/* .videos {
-  --background-color: rgba(var(--accent-color-rgb), .03);
+.videos {
+  /* --background-color: rgba(var(--accent-color-rgb), .03); */
+  --background-color: var(--background-color);
 }
 
 .videos .video-item {
@@ -1113,39 +1114,46 @@ section,
 
 .videos .video-item:hover p {
   color: rgba(var(--default-color-rgb), 0.9);
-} */
+}
 
 /**
  * Grid styles
  */
- .video-grid.front-page {
+.video-grid.front-page {
   max-width: 1280px;
   margin: 0 auto;
   padding: 1em 2em;
 }
 
-ul.video-list {
-  display: flexbox;
+ul.video-list.featured{
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-flow: wrap;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  /* width: 100px; */
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  /* display: flex; */
+  justify-content: flex-start;
   list-style: none;
 }
 
-li.video {
+li.video.featured{
   flex-grow: 1;
-  position: relative;
+  /* max-width: 500px; */
+  /* Below causes to add grey line on hover */
+  /* position: relative; */
   overflow: hidden;
 	width: 33.333333333%;
-	width: -webkit-calc(100% / 3);
-	width: calc(100% / 3);
+	/* width: -webkit-calc(100% / 3); */
+	/* width: calc(100% / 3); */
   border: solid 0.2em transparent;
 
   & a {
     outline: none;
   }
 
-  &:before {
+  /* &:before {
     content: '';
     display: block;
     position: absolute;
@@ -1155,7 +1163,7 @@ li.video {
     height: 100%;
     background-color: rgba(0,0,0,0);
     transition: background-color .15s;
-  }
+  } */
 
   & figure {
     display: block;
