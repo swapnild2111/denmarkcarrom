@@ -6,7 +6,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>DKCF | Denmark Carrom Federation</title>
   <meta content="Denmark Carrom Federation, Europe Carrom" name="description">
-  <meta content="Carrom, Board games, Denmark, Europe, Indian games, Carrom Federation" name="keywords">
+  <meta content="Carrom, Board games, Denmark, Europe, Indian games, Carrom Federation" name="yearwords">
 
   <!-- Favicons -->
   <link href="assets/img/favicon-32x32.svg" rel="icon">
@@ -25,7 +25,7 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Mailchimp popup form -->
-  <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/6f88967f87622a96cdae61d76/4e37198067c123663e489a44a.js");</script>
+  <!-- <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/6f88967f87622a96cdae61d76/4e37198067c123663e489a44a.js");</script> -->
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
@@ -42,13 +42,20 @@
               return res.json();
             })
             .then((data) => {
-                // Soring keys which are event years and making descending order
-                var keys = Object.keys(data)
-                keys.sort();
-                keys.reverse();
+                var years = Object.keys(data)
+                years.sort()
+                years.reverse()
 
-                for (let key of keys) {
+                for (let year of years) {
 
+                  var months = Object.values(data[year])
+                  var monthGroups = Object.groupBy(months, ({ month }) => month);
+                  var months = Object.keys(monthGroups)
+                  //months.sort()
+                  months.sort((a, b) => {
+                    const monthOrder = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                    return monthOrder.indexOf(a) - monthOrder.indexOf(b);
+                  });
 
                   var event_calendar = document.createElement('div');
                   event_calendar.id = 'row'
@@ -56,51 +63,76 @@
                   document.getElementById('event_calendar').appendChild(event_calendar);
 
                   var event_year = document.createElement('div');
-                  event_year.id = key
-                  event_year.className = 'col-lg-4'
+                  event_year.id = year
+                  event_year.className = 'col-lg-12'
                   document.getElementById('row').appendChild(event_year);
 
                   var event_calendar_heading = document.createElement('div')
-                  event_calendar_heading.id = key + "-list"
+                  event_calendar_heading.id = year + "-list"
                   event_calendar_heading.className = "recent-activities card"
-                  document.getElementById(key).appendChild(event_calendar_heading);
+                  document.getElementById(year).appendChild(event_calendar_heading);
 
-                  var heading = '<div class="card-header"><h4>' + key + '</h4></div>';
-                  document.getElementById(key + '-list').innerHTML += heading;
+                  var heading = '<div class="card-header"><h4>' + year + '</h4></div>';
+                  document.getElementById(year + '-list').innerHTML += heading;
 
                   var calendar = document.createElement('div');
                   calendar.className = 'card-body no-padding';
-                  calendar.id = key + '-content';
-                  document.getElementById(key + '-list').appendChild(calendar);
+                  calendar.id = year + '-content';
+                  document.getElementById(year + '-list').appendChild(calendar);
 
-                  for (var i = 0; i < data[key].length; i++) {
-                      var date = data[key][i].date;
-                      var month = data[key][i].month;
-                      var title = data[key][i].title;
-                      var link = data[key][i].link;
-                      var desc = data[key][i].description;
+                  months.forEach(m => {
+                    var mArray = Object.values(monthGroups[m])
+
+                    var event_month = document.createElement('div');
+                    event_month.id = m + "-" + year + "-list"
+                    event_month.className = 'item row col-lg-12'
+                    document.getElementById(year + "-content").appendChild(event_month);
+
+                    var event_month_content = document.createElement('div');
+                    event_month_content.id = m + "-" + year + "-content"
+                    event_month_content.className = 'item row col-lg-12'
+                    document.getElementById(m + "-" + year + "-list").appendChild(event_month_content);
+
+                    var headingMonth = '<div class="col-2 content"><h5>' + m + '</h5></div>';
+                    document.getElementById(m + "-" + year + "-content").innerHTML += headingMonth;
+
+                    var eventMonth = '<div id="'+ m + "-" + year + "-sub-content"+'" class="col-10 content">';
+                    document.getElementById(m + "-" + year + "-content").innerHTML += eventMonth;
+
+                    console.log(m)
+                    mArray.forEach(month => {
+                      var date = month.date;
+                      var monthname = month.month;
+                      var title = month.title;
+                      var link = month.link;
+                      var desc = month.description;
 
                       var event =
-                          '<div class="item row">' +
-                          '<div class="col-3">' +
-                          '<div class="calendar event_icon">' +
-                          '<div class="event_month">' + month + '</div>' +
-                          '<div class="event_day">' + date + '</div>' +
-                          '</div></div>' +
-                          '<div class="col-8 content">' +
-                          '<a href="' + link + '" target="_blank"><h5>' + title + '</h5></a>' +
-                          '<p>' + desc + '</p>' +
-                          '</div></div>'
-                      document.getElementById(key + '-content').innerHTML += event;
+                        '<div class="item row col-10 content">' +
+                        '<div class="col-2 content">' +
+                        '<div class="calendar event_icon">' +
+                        '<div class="event_month">' + monthname + '</div>' +
+                        '<div class="event_day">' + date + '</div>' +
+                        '</div></div>' +
+                        '<div class="col-8 content">' +
+                        '<a href="' + link + '" target="_blank"><h5>' + title + '</h5></a>' +
+                        '<p>' + desc + '</p>' +
+                        '</div></div>'
+                      document.getElementById(m + "-" + year + "-sub-content").innerHTML += event;
+                    });
+
+                    document.getElementById(m + "-" + year + "-content").innerHTML += '</div>';
+
+                  });
+
+                  if ( data[year].length == 0 ) {
+                    document.getElementById(year + '-content').classList.remove('calendar');
+                    var no_data = '<div class="item row content">No events available</div>'
+                    document.getElementById(year + '-content').innerHTML += no_data;
                   }
 
-                  if ( data[key].length == 0 ) {
-                    document.getElementById(key + '-content').classList.remove('calendar');
-                    var no_data = '<div class="item row">No events available</div>'
-                    document.getElementById(key + '-content').innerHTML += no_data;
-                  }
+                }
 
-              }
             })
             .catch((error) =>
                    console.error("Unable to fetch data:", error));
