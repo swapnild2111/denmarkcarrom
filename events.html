@@ -51,7 +51,7 @@
                   var months = Object.values(data[year])
                   var monthGroups = Object.groupBy(months, ({ month }) => month);
                   var months = Object.keys(monthGroups)
-                  //months.sort()
+
                   months.sort((a, b) => {
                     const monthOrder = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
                     return monthOrder.indexOf(a) - monthOrder.indexOf(b);
@@ -64,7 +64,7 @@
 
                   var event_year = document.createElement('div');
                   event_year.id = year
-                  event_year.className = 'col-lg-12'
+                  event_year.className = 'col-lg-4'
                   document.getElementById('row').appendChild(event_year);
 
                   var event_calendar_heading = document.createElement('div')
@@ -80,48 +80,54 @@
                   calendar.id = year + '-content';
                   document.getElementById(year + '-list').appendChild(calendar);
 
-                  months.forEach(m => {
-                    var mArray = Object.values(monthGroups[m])
+                  months.forEach(monthName => {
+                    var monthsArray = Object.values(monthGroups[monthName])
+                    monthsArray.sort((a, b) => {
+                      return a.date - b.date;
+                    });
 
                     var event_month = document.createElement('div');
-                    event_month.id = m + "-" + year + "-list"
+                    event_month.id = monthName + "-" + year + "-list"
                     event_month.className = 'item row col-lg-12'
                     document.getElementById(year + "-content").appendChild(event_month);
 
                     var event_month_content = document.createElement('div');
-                    event_month_content.id = m + "-" + year + "-content"
-                    event_month_content.className = 'item row col-lg-12'
-                    document.getElementById(m + "-" + year + "-list").appendChild(event_month_content);
+                    event_month_content.id = monthName + "-" + year + "-content"
+                    event_month_content.className = 'item row col-12'
+                    document.getElementById(monthName + "-" + year + "-list").appendChild(event_month_content);
 
-                    var headingMonth = '<div class="col-2 content"><h5>' + m + '</h5></div>';
-                    document.getElementById(m + "-" + year + "-content").innerHTML += headingMonth;
+                    // var headingMonth = '<div class="col-2 content"><h5>' + monthName + '</h5></div>';
+                    var headingMonth = '<div class="col-2 content"><h6>1-January-2024</h6></div>';
+                    document.getElementById(monthName + "-" + year + "-content").innerHTML += headingMonth;
 
-                    var eventMonth = '<div id="'+ m + "-" + year + "-sub-content"+'" class="col-10 content">';
-                    document.getElementById(m + "-" + year + "-content").innerHTML += eventMonth;
+                    var eventMonth = '<div id="'+ monthName + "-" + year + "-sub-content"+'" class="col-10">';
+                    document.getElementById(monthName + "-" + year + "-content").innerHTML += eventMonth;
 
-                    console.log(m)
-                    mArray.forEach(month => {
+                    console.log(monthName)
+                    monthsArray.forEach(month => {
                       var date = month.date;
-                      var monthname = month.month;
+                      var day = month.day;
                       var title = month.title;
                       var link = month.link;
                       var desc = month.description;
+                      var result = month.result;
 
                       var event =
-                        '<div class="item row col-10 content">' +
-                        '<div class="col-2 content">' +
-                        '<div class="calendar event_icon">' +
-                        '<div class="event_month">' + monthname + '</div>' +
-                        '<div class="event_day">' + date + '</div>' +
-                        '</div></div>' +
-                        '<div class="col-8 content">' +
-                        '<a href="' + link + '" target="_blank"><h5>' + title + '</h5></a>' +
-                        '<p>' + desc + '</p>' +
+                        '<div class="row content">' +
+                        // '<div class="col-2 content">' +
+                        // '<div class="calendar event_icon">' +
+                        // '<div class="event_icon">' +
+                        // '<div class="event_month">' + day + '</div>' +
+                        // '<div class="event_day">' + date + '</div>' +
+                        // '</div></div></div>' +
+                        '<div class="col content">' +
+                        '<a href="' + link + '" target="_blank"><h6>' + title + '</h6></a>' +
+                        'Result: <a href="' + result + '" target="_blank">Click here</a>' +
                         '</div></div>'
-                      document.getElementById(m + "-" + year + "-sub-content").innerHTML += event;
+                      document.getElementById(monthName + "-" + year + "-sub-content").innerHTML += event;
                     });
 
-                    document.getElementById(m + "-" + year + "-content").innerHTML += '</div>';
+                    document.getElementById(monthName + "-" + year + "-content").innerHTML += '</div>';
 
                   });
 

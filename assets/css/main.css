@@ -2317,7 +2317,7 @@ article {
   color: var(--nav-hover-color)
 }
 .calendar .event_icon {
-	 width: 4em;
+	 width: 5em;
 	 float: left;
 	 margin-right: 0.75em;
 }
@@ -2485,12 +2485,12 @@ article {
 } */
 
 .recent-activities .item {
-  padding: 0px 15px;
+  padding: 0px 5px;
   border-bottom: 1px solid #eee
 }
 
 .recent-activities .item div[class*='col-'] {
-  padding: 15px
+  padding: 5px
 }
 
 .recent-activities h5 {
