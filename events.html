@@ -42,20 +42,12 @@
               return res.json();
             })
             .then((data) => {
-                var years = Object.keys(data)
-                years.sort()
-                years.reverse()
+                var calendarYears = Object.keys(data)
+                calendarYears.sort()
+                calendarYears.reverse()
 
-                for (let year of years) {
-
-                  var months = Object.values(data[year])
-                  var monthGroups = Object.groupBy(months, ({ month }) => month);
-                  var months = Object.keys(monthGroups)
-
-                  months.sort((a, b) => {
-                    const monthOrder = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-                    return monthOrder.indexOf(a) - monthOrder.indexOf(b);
-                  });
+                calendarYears.forEach(year => {
+                  var events = Object.values(data[year])
 
                   var event_calendar = document.createElement('div');
                   event_calendar.id = 'row'
@@ -64,7 +56,7 @@
 
                   var event_year = document.createElement('div');
                   event_year.id = year
-                  event_year.className = 'col-lg-4'
+                  event_year.className = 'col-12'
                   document.getElementById('row').appendChild(event_year);
 
                   var event_calendar_heading = document.createElement('div')
@@ -80,64 +72,45 @@
                   calendar.id = year + '-content';
                   document.getElementById(year + '-list').appendChild(calendar);
 
-                  months.forEach(monthName => {
-                    var monthsArray = Object.values(monthGroups[monthName])
-                    monthsArray.sort((a, b) => {
-                      return a.date - b.date;
-                    });
+                  var tableHtml = '<table class="table table-hover">' +
+                    '<thead>' +
+                    '<tr>' +
+                    '<th scope="col">Date</th>' +
+                    '<th scope="col">Event</th>' +
+                    '<th scope="col">Results</th>' +
+                    '</tr>' +
+                    '</thead>' +
+                    '<tbody>'
 
-                    var event_month = document.createElement('div');
-                    event_month.id = monthName + "-" + year + "-list"
-                    event_month.className = 'item row col-lg-12'
-                    document.getElementById(year + "-content").appendChild(event_month);
-
-                    var event_month_content = document.createElement('div');
-                    event_month_content.id = monthName + "-" + year + "-content"
-                    event_month_content.className = 'item row col-12'
-                    document.getElementById(monthName + "-" + year + "-list").appendChild(event_month_content);
-
-                    // var headingMonth = '<div class="col-2 content"><h5>' + monthName + '</h5></div>';
-                    var headingMonth = '<div class="col-2 content"><h6>1-January-2024</h6></div>';
-                    document.getElementById(monthName + "-" + year + "-content").innerHTML += headingMonth;
-
-                    var eventMonth = '<div id="'+ monthName + "-" + year + "-sub-content"+'" class="col-10">';
-                    document.getElementById(monthName + "-" + year + "-content").innerHTML += eventMonth;
-
-                    console.log(monthName)
-                    monthsArray.forEach(month => {
-                      var date = month.date;
-                      var day = month.day;
-                      var title = month.title;
-                      var link = month.link;
-                      var desc = month.description;
-                      var result = month.result;
-
-                      var event =
-                        '<div class="row content">' +
-                        // '<div class="col-2 content">' +
-                        // '<div class="calendar event_icon">' +
-                        // '<div class="event_icon">' +
-                        // '<div class="event_month">' + day + '</div>' +
-                        // '<div class="event_day">' + date + '</div>' +
-                        // '</div></div></div>' +
-                        '<div class="col content">' +
-                        '<a href="' + link + '" target="_blank"><h6>' + title + '</h6></a>' +
-                        'Result: <a href="' + result + '" target="_blank">Click here</a>' +
-                        '</div></div>'
-                      document.getElementById(monthName + "-" + year + "-sub-content").innerHTML += event;
-                    });
-
-                    document.getElementById(monthName + "-" + year + "-content").innerHTML += '</div>';
-
+                  events.forEach(eventName => {
+                    var date = eventName.date;
+                    var day = eventName.day;
+                    var month = eventName.month;
+                    var yearNumber = eventName.year;
+                    var title = eventName.title;
+                    var link = eventName.link;
+                    var desc = eventName.description;
+                    var result = eventName.result;
+                    var eventRow = '<tr>'
+                    if (title.includes("Open") === true) {
+                      eventRow = '<tr class="table-warning">'
+                    }
+                    if (result != "-") {
+                      result = '<a href="' + result + '" target="_blank">Click here</a>'
+                      eventRow = '<tr class="table-success">'
+                    }
+                    var event =
+                      eventRow +
+                      '<td scope="row"><b>' + date + '-' + month + '-' + yearNumber + '</b> (' + day + ')</td>' +
+                      '<td><a href="' + link + '" target="_blank"><h6>' + title + '</h6></a></td>' +
+                      '<td>' + result + '</td>' +
+                      '</tr>'
+                    tableHtml += event;
                   });
+                  tableHtml += '</tbody></table>'
+                  document.getElementById(year + '-content').innerHTML += tableHtml
 
-                  if ( data[year].length == 0 ) {
-                    document.getElementById(year + '-content').classList.remove('calendar');
-                    var no_data = '<div class="item row content">No events available</div>'
-                    document.getElementById(year + '-content').innerHTML += no_data;
-                  }
-
-                }
+                });
 
             })
             .catch((error) =>
