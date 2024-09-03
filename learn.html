@@ -783,25 +783,9 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <!-- Google reCaptch v3 -->
-  <script src="https://www.google.com/recaptcha/api.js?render=6Les66kUAAAAANyLrgkl7iuN4JUpNlB5upaMovI4"></script>
-  <script>
-    var myForm = document.getElementById('dkca-form-submit')
-    myForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        grecaptcha.ready(function() {
-            grecaptcha.execute('6Les66kUAAAAANyLrgkl7iuN4JUpNlB5upaMovI4', {action: 'submit'}).then(function(token) {
-                document.getElementById('g-recaptcha-response').value = token;
-                myForm.submit();
-            });
-        });
-    });
-    </script>
-
-    <!-- Subscription popup from mailchimp -->
-    <!-- <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
-    <script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[6]='SUBJECT';ftypes[6]='text';fnames[7]='MESSAGE';ftypes[7]='text';fnames[8]='NAME';ftypes[8]='text';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script> -->
+  <!-- Subscription popup from mailchimp -->
+  <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+  <script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[6]='SUBJECT';ftypes[6]='text';fnames[7]='MESSAGE';ftypes[7]='text';fnames[8]='NAME';ftypes[8]='text';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 </body>
 
 </html>
