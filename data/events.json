@@ -5,7 +5,7 @@
             "day": "Saturday",
             "month": "March",
             "year": "2024",
-            "title": "Denmark Open Singles Carrom Tournament",
+            "title": "Denmark International Singles Carrom Tournament 2024",
             "link": "https://www.facebook.com/events/1078738533177062",
             "description": "Open carrom tournament to invite all players in Europe",
             "result": "https://sol5.metapensiero.it/lit/championship/7ca1d5dddc0011ee898d6162688db8a6"
@@ -15,7 +15,7 @@
             "day": "Saturday",
             "month": "March",
             "year": "2024",
-            "title": "Denmark Open Doubles Carrom Tournament",
+            "title": "Denmark International Doubles Carrom Tournament 2024",
             "link": "https://www.facebook.com/events/1078738533177062",
             "description": "Open carrom tournament to invite all players in Europe",
             "result": "https://sol5.metapensiero.it/lit/championship/30b33cbedd6211eeb52a6162688db8a6"
@@ -25,17 +25,17 @@
             "day": "Saturday",
             "month": "September",
             "year": "2024",
-            "title": "Ranking tournament - 1",
+            "title": "Copenhagen Ranking Tournament - 1",
             "link": "",
             "description": "Copenhagen carrom ranking tournament",
             "result": "-"
         },
         {
-            "date": "19",
+            "date": "5",
             "day": "Saturday",
             "month": "October",
             "year": "2024",
-            "title": "Ranking tournament - 2",
+            "title": "Copenhagen Ranking Tournament - 2",
             "link": "",
             "description": "Copenhagen carrom ranking tournament",
             "result": "-"
@@ -45,7 +45,7 @@
             "day": "Saturday",
             "month": "November",
             "year": "2024",
-            "title": "Ranking tournament - 3",
+            "title": "Copenhagen Ranking Tournament - 3",
             "link": "",
             "description": "Copenhagen carrom ranking tournament",
             "result": "-"
@@ -55,7 +55,7 @@
             "day": "Saturday",
             "month": "December",
             "year": "2024",
-            "title": "Ranking tournament - 4",
+            "title": "Copenhagen Ranking Tournament - 4",
             "link": "",
             "description": "Copenhagen carrom ranking tournament",
             "result": "-"
@@ -65,7 +65,7 @@
             "day": "Saturday",
             "month": "January",
             "year": "2025",
-            "title": "Ranking tournament - 5",
+            "title": "Copenhagen Ranking Tournament - 5",
             "link": "",
             "description": "Copenhagen carrom ranking tournament",
             "result": "-"
@@ -75,7 +75,7 @@
             "day": "Saturday",
             "month": "February",
             "year": "2025",
-            "title": "Ranking tournament - 6",
+            "title": "Copenhagen Ranking Tournament - 6",
             "link": "",
             "description": "Copenhagen carrom ranking tournament",
             "result": "-"
@@ -85,7 +85,17 @@
             "day": "Saturday",
             "month": "March",
             "year": "2025",
-            "title": "Denmark Open Carrom tournament",
+            "title": "Denmark International Singles Carrom tournament 2025",
+            "link": "",
+            "description": "Open carrom tournament to invite all players in Europe",
+            "result": "-"
+        },
+        {
+            "date": "2",
+            "day": "Sunday",
+            "month": "March",
+            "year": "2025",
+            "title": "Denmark International Doubles Carrom tournament 2025",
             "link": "",
             "description": "Open carrom tournament to invite all players in Europe",
             "result": "-"
@@ -95,7 +105,7 @@
             "day": "Saturday",
             "month": "March",
             "year": "2025",
-            "title": "Ranking tournament - 7",
+            "title": "Copenhagen Ranking Tournament - 7",
             "link": "",
             "description": "Copenhagen carrom ranking tournament",
             "result": "-"
@@ -105,7 +115,7 @@
             "day": "Saturday",
             "month": "April",
             "year": "2025",
-            "title": "Ranking tournament - 8",
+            "title": "Copenhagen Ranking Tournament - 8",
             "link": "",
             "description": "Copenhagen carrom ranking tournament",
             "result": "-"
@@ -115,7 +125,7 @@
             "day": "Saturday",
             "month": "May",
             "year": "2025",
-            "title": "Ranking tournament - 9",
+            "title": "Copenhagen Ranking Tournament - 9",
             "link": "",
             "description": "Copenhagen carrom ranking tournament",
             "result": "-"
@@ -125,7 +135,7 @@
             "day": "Saturday",
             "month": "June",
             "year": "2025",
-            "title": "Ranking tournament - 10",
+            "title": "Copenhagen Ranking Tournament - 10",
             "link": "",
             "description": "Copenhagen carrom ranking tournament",
             "result": "-"

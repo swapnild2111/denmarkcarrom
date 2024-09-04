@@ -102,17 +102,21 @@
                     var desc = eventName.description;
                     var result = eventName.result;
                     var eventRow = '<tr>'
-                    if (title.includes("Open") === true) {
+                    var eventLink = title
+                    if (title.includes("Open") === true || title.includes("International") === true) {
                       eventRow = '<tr class="table-warning">'
                     }
                     if (result != "-") {
-                      result = '<a href="' + result + '" target="_blank">Click here</a>'
+                      result = '<a href="' + result + '" target="_blank"><div class="fs-2 mb-3"><i class="bi bi-cloud-arrow-down-fill"></i></div></a>'
                       eventRow = '<tr class="table-success">'
+                    }
+                    if (link != "") {
+                      eventLink = '<a href="' + link + '" target="_blank">' + title + '</a>'
                     }
                     var event =
                       eventRow +
-                      '<td scope="row"><b>' + date + '-' + month + '-' + yearNumber + '</b> (' + day + ')</td>' +
-                      '<td><a href="' + link + '" target="_blank"><h6>' + title + '</h6></a></td>' +
+                      '<td scope="row"><b>' + date + '-' + month + '-' + yearNumber + '</b> <div class="subtext">(' + day + ')</div></td>' +
+                      '<td>' + eventLink + '</td>' +
                       '<td>' + result + '</td>' +
                       '</tr>'
                     tableHtml += event;

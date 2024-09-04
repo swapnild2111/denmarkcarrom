@@ -2567,6 +2567,20 @@ time.icon span
   color: #999
 }
 
+.recent-activities th {
+  font-size: 1em;
+  color: var(--heading-color)
+}
+
+.recent-activities tr td {
+  font-size: 1em;
+  color: var(--heading-color)
+}
+
+.recent-activities .subtext {
+  color: var(--heading-color)
+}
+
 .recent-activities .icon {
   width: 35px;
   height: 35px;
