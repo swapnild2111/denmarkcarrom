@@ -105,6 +105,11 @@
   window.addEventListener('load', aosInit);
 
   /**
+   * Initiate Pure Counter
+   */
+  new PureCounter();
+  
+  /**
    * Initiate glightbox
    */
   const glightbox = GLightbox({
