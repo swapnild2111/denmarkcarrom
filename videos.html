@@ -15,7 +15,9 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -34,11 +36,13 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FX6FYFW63V"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-FX6FYFW63V');
   </script>
+
+  <!-- <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script> -->
 
   <!-- =======================================================
   * Template Name: QuickStart
@@ -69,7 +73,8 @@
           <li><a href="index.html#team">Team</a></li>
           <li><a href="events.html">Events</a></li>
           <li><a href="videos.html">Videos</a></li>
-          <li class="dropdown"><a href="learn.html"><span>Learn</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li class="dropdown"><a href="learn.html"><span>Learn</span> <i
+                class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="learn.html">What is Carrom?</a></li>
               <li><a href="learn.html#how">How to play?</a></li>
@@ -88,314 +93,34 @@
 
   <main class="main">
 
-    <br/><br/>
+    <br /><br />
 
     <!-- Portfolio Section -->
     <!-- Get youtube thumbnails from http://www.get-youtube-thumbnail.com/ -->
     <section id="portfolio" class="portfolio section">
       <div class="container section-title" data-aos="fade-up">
-          <h2>Videos</h2>
-          <p>Carrom Learning videos, Courses, Gameplays & More</p>
+        <h2>Videos</h2>
+        <p>Carrom Learning videos, Courses, Gameplays & More</p>
       </div>
 
-      <div class="container-fluid isotope-layout" data-default-filter=".filter-carrom-intro" data-layout="masonry" data-sort="original-order">
+      <div class="container-fluid isotope-layout" data-default-filter=".filter-carrom-intro" data-layout="masonry"
+        data-sort="original-order">
 
         <div class="row col-lg-12 col-md-12" data-aos="fade-up" data-aos-delay="200">
 
           <div class="col-lg-3 col-md-6 portfolio-item isotope-item filter-app">
             <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-              <!-- <li data-filter="*" class="filter-active">All</li> -->
-              <li data-filter=".filter-carrom-intro" class="filter-active">Carrom Introduction</li>
-              <li data-filter=".filter-arun-champion">Arun Deshpande - Champion course</li>
-              <!--<li data-filter=".filter-arun-intermediate">Arun Deshpande - Intermediate course</li>
-              <li data-filter=".filter-arun-beginner">Arun Deshpande - Beginner course</li>
-              <li data-filter=".filter-suhas">Suhas Kambli - Carrom legend</li>
-              <li data-filter=".filter-neeraj">Neeraj Sympathy</li>
-              <li data-filter=".filter-maria">Maria Indrapuram</li> -->
+              <!-- Navigation menu will be populated with generateNavigationHTML function -->
             </ul>
           </div>
 
           <div class="col-lg-9 col-md-9">
-            <div class="isotope-container">
-              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-carrom-intro">
-                <ul class="video-list featured">
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/24ug8IGCWdU" class="featured-video">
-                      <figure style="background-image: url('https://i3.ytimg.com/vi/24ug8IGCWdU/maxresdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Introduction to Carrom</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="col-lg-10 col-md-6 portfolio-item isotope-item filter-arun-champion">
-
-                <ul class="video-list featured">
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/6t1kn2wzNOo" class="featured-video">
-                      <figure style="background-image: url('http://i3.ytimg.com/vi/Rm17_RqoikQ/hqdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Champion Cut, Straight cut, Cross cut</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/rTVzsvknhOA" class="featured-video">
-                      <figure style="background-image: url('http://i3.ytimg.com/vi/Rm17_RqoikQ/hqdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Champion Double, Cross double</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/aJkKdyOjJjs" class="featured-video">
-                      <figure style="background-image: url('http://i3.ytimg.com/vi/Rm17_RqoikQ/hqdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Champion Langda Rebound</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/uvqYRLRcIAQ" class="featured-video">
-                      <figure style="background-image: url('http://i3.ytimg.com/vi/Rm17_RqoikQ/hqdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Champion Wrong shot</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/uKJJHu9cWZc" class="featured-video">
-                      <figure style="background-image: url('http://i3.ytimg.com/vi/Rm17_RqoikQ/hqdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Champion Glance</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/I-Yf9PghHA0" class="featured-video">
-                      <figure style="background-image: url('http://i3.ytimg.com/vi/Rm17_RqoikQ/hqdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Champion wrong pair</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/fBb0agfqcwo" class="featured-video">
-                      <figure style="background-image: url('http://i3.ytimg.com/vi/Rm17_RqoikQ/hqdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Champion Touch</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/InPNee7HV4c" class="featured-video">
-                      <figure style="background-image: url('http://i3.ytimg.com/vi/Rm17_RqoikQ/hqdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Champion Advantages of Touch</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/LKgGD94MhJc" class="featured-video">
-                      <figure style="background-image: url('http://i3.ytimg.com/vi/Rm17_RqoikQ/hqdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Champion second, cross second, cross third</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/GpOykL199gU" class="featured-video">
-                      <figure style="background-image: url('http://i3.ytimg.com/vi/Rm17_RqoikQ/hqdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Champion press - 1</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/q0jlG9OXKLI" class="featured-video">
-                      <figure style="background-image: url('http://i3.ytimg.com/vi/Rm17_RqoikQ/hqdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Champion press - 2</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/8A1cZ-yMZEI" class="featured-video">
-                      <figure style="background-image: url('http://i3.ytimg.com/vi/Rm17_RqoikQ/hqdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Champion Force</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/CL64i7ExkSc" class="featured-video">
-                      <figure style="background-image: url('http://i3.ytimg.com/vi/Rm17_RqoikQ/hqdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Champion Bomb</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/lGIEPr4z9NI" class="featured-video">
-                      <figure style="background-image: url('http://i3.ytimg.com/vi/Rm17_RqoikQ/hqdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Champion Rolling of coin</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/h_67KxeDtzc" class="featured-video">
-                      <figure style="background-image: url('http://i3.ytimg.com/vi/Rm17_RqoikQ/hqdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Champion Rolling of striker</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/HOxn4Q-1VtY" class="featured-video">
-                      <figure style="background-image: url('http://i3.ytimg.com/vi/Rm17_RqoikQ/hqdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Champion Defense</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/SCY7KuCBT7Q" class="featured-video">
-                      <figure style="background-image: url('http://i3.ytimg.com/vi/Rm17_RqoikQ/hqdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Champion Advance strokes</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/y80C9BfWVGQ" class="featured-video">
-                      <figure style="background-image: url('http://i3.ytimg.com/vi/Rm17_RqoikQ/hqdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Champion spin</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/PJG08khutoA" class="featured-video">
-                      <figure style="background-image: url('http://i3.ytimg.com/vi/Rm17_RqoikQ/hqdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Champion Winning strokes</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/86Y52mCU7a4" class="featured-video">
-                      <figure style="background-image: url('http://i3.ytimg.com/vi/Rm17_RqoikQ/hqdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Champion Exhibition strokes</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                  <!-- <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/QvW-Pd-FTow" class="featured-video">
-                      <figure style="background-image: url('http://i3.ytimg.com/vi/Rm17_RqoikQ/hqdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Champion How to level striker</figcaption>
-                      </figure>
-                    </a>
-                  </li> -->
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/uehqA-vy8g8" class="featured-video">
-                      <figure style="background-image: url('http://i3.ytimg.com/vi/Rm17_RqoikQ/hqdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Champion Physical Excercizes</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- <div class="col-lg-12 col-md-6 portfolio-item isotope-item filter-arun-intermediate">
-                <ul class="video-list featured">
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/aw2JB5YLc5k" class="featured-video">
-                      <figure style="background-image: url('https://i3.ytimg.com/vi/aw2JB5YLc5k/maxresdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Basic to advance carrom shots</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/aw2JB5YLc5k" class="featured-video">
-                      <figure style="background-image: url('https://i3.ytimg.com/vi/aw2JB5YLc5k/maxresdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Basic to advance carrom shots</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/aw2JB5YLc5k" class="featured-video">
-                      <figure style="background-image: url('https://i3.ytimg.com/vi/aw2JB5YLc5k/maxresdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Basic to advance carrom shots</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-arun-beginner">
-                <ul class="video-list featured">
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/aw2JB5YLc5k" class="featured-video">
-                      <figure style="background-image: url('https://i3.ytimg.com/vi/aw2JB5YLc5k/maxresdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Basic to advance carrom shots</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-suhas">
-                <ul class="video-list featured">
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/aw2JB5YLc5k" class="featured-video">
-                      <figure style="background-image: url('https://i3.ytimg.com/vi/aw2JB5YLc5k/maxresdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Basic to advance carrom shots</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-neeraj">
-                <ul class="video-list featured">
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/aw2JB5YLc5k" class="featured-video">
-                      <figure style="background-image: url('https://i3.ytimg.com/vi/aw2JB5YLc5k/maxresdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Basic to advance carrom shots</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-maria">
-                <ul class="video-list featured">
-                  <li class="video featured">
-                    <a data-fancybox target="_blank" href="https://www.youtube.com/embed/aw2JB5YLc5k" class="featured-video">
-                      <figure style="background-image: url('https://i3.ytimg.com/vi/aw2JB5YLc5k/maxresdefault.jpg');">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />
-                        <figcaption>Basic to advance carrom shots</figcaption>
-                      </figure>
-                    </a>
-                  </li>
-                </ul>
-              </div> -->
-
-            </div>
+            <div class="isotope-container"></div>
+            <!-- Videos will be populated with generateVideosHTML function -->
+          </div>
         </div>
       </div>
+
     </section>
 
   </main>
@@ -468,7 +193,8 @@
     </div> -->
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Denmark Carrom Federation</strong><span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Denmark Carrom Federation</strong><span>All Rights
+          Reserved</span></p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
@@ -481,7 +207,8 @@
   </footer>
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Preloader -->
   <div id="preloader"></div>
@@ -502,7 +229,132 @@
 
   <!-- Subscription popup from mailchimp -->
   <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
-  <script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[6]='SUBJECT';ftypes[6]='text';fnames[7]='MESSAGE';ftypes[7]='text';fnames[8]='NAME';ftypes[8]='text';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+  <script
+    type="text/javascript">(function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[0] = 'EMAIL'; ftypes[0] = 'email'; fnames[6] = 'SUBJECT'; ftypes[6] = 'text'; fnames[7] = 'MESSAGE'; ftypes[7] = 'text'; fnames[8] = 'NAME'; ftypes[8] = 'text'; fnames[1] = 'FNAME'; ftypes[1] = 'text'; fnames[2] = 'LNAME'; ftypes[2] = 'text'; fnames[3] = 'ADDRESS'; ftypes[3] = 'address'; fnames[4] = 'PHONE'; ftypes[4] = 'phone'; fnames[5] = 'BIRTHDAY'; ftypes[5] = 'birthday'; }(jQuery)); var $mcj = jQuery.noConflict(true);</script>
+
+  <!-- Generate HTML based on videos.json -->
+  <script>
+    // Function to generate Navigation HTML
+    function generateNavigationHTML(data) {
+      const filters = document.querySelector('.portfolio-filters');
+      filters.innerHTML = '';  // Clear previous content if any
+
+      // Loop through each category in JSON data
+      for (const categoryKey in data) {
+        const category = data[categoryKey];
+
+        // Create filter item
+        const filterItem = document.createElement('li');
+        filterItem.setAttribute('data-filter', '.filter-' + categoryKey);
+        if (category.default) {
+          filterItem.className = 'filter-active';
+        }
+        filterItem.innerHTML = category.name;
+
+        // Append filter item to filters container
+        filters.appendChild(filterItem);
+      }
+    }
+    // Function to generate Videos HTML
+    function generateVideosHTML(data) {
+      const contentDiv = document.querySelector('.isotope-container');
+      contentDiv.innerHTML = '';  // Clear previous content if any
+
+      // Loop through each category in JSON data
+      for (const categoryKey in data) {
+        const category = data[categoryKey];
+
+        // Create category container
+        const categoryDiv = document.createElement('div');
+        if (category.videos.length <= 1) {
+          categoryDiv.className = 'col-lg-4 col-md-6 portfolio-item isotope-item filter-' + categoryKey;
+        } else {
+          categoryDiv.className = 'col-lg-12 col-md-6 portfolio-item isotope-item filter-' + categoryKey;
+        }
+
+        // Create UL for list
+        const ul = document.createElement('ul');
+        ul.className = 'video-list featured';
+        categoryDiv.appendChild(ul);
+
+        // Loop through each video in the category
+        category.videos.forEach(video => {
+          // Create video item container
+          const videoItemDiv = document.createElement('li');
+          videoItemDiv.className = 'video featured';
+
+          // Create link for the video
+          var videoItemDivInnerHTML =
+            '<a data-fancybox target="_blank" href="' + video.video_url + '" class="featured-video">' +
+            '<figure style="background-image: url(' + video.thumbnail_image + ');">' +
+            '<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />' +
+            '<figcaption>' + video.title + '</figcaption>' +
+            '</figure>' +
+            '</a>';
+
+          videoItemDiv.innerHTML = videoItemDivInnerHTML;
+
+          // Append video item to videos container
+          ul.appendChild(videoItemDiv);
+        });
+
+        // Append category container to main content div
+        contentDiv.appendChild(categoryDiv);
+      }
+
+      // Use imagesLoaded to ensure all images are loaded before layout and reload isotope layout
+      imagesLoaded(contentDiv, function () {
+        document.querySelectorAll('.isotope-layout').forEach(function (isotopeItem) {
+          let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
+          let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
+          let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
+
+          let initIsotope;
+          imagesLoaded(isotopeItem.querySelector('.isotope-container'), function () {
+            initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
+              itemSelector: '.isotope-item',
+              layoutMode: layout,
+              filter: filter,
+              sortBy: sort
+            });
+          });
+
+          isotopeItem.querySelectorAll('.isotope-filters li').forEach(function (filters) {
+            filters.addEventListener('click', function () {
+              isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
+              this.classList.add('filter-active');
+              initIsotope.arrange({
+                filter: this.getAttribute('data-filter')
+              });
+              if (typeof aosInit === 'function') {
+                aosInit();
+              }
+            }, false);
+          });
+
+        });
+
+      });
+    }
+
+    // Fetch JSON data from an external file
+    fetch('./data/videos.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Call the function with fetched JSON data
+        generateNavigationHTML(data);
+        generateVideosHTML(data);
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
+  </script>
+
 </body>
 
 </html>
