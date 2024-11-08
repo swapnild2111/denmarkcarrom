@@ -5,7 +5,7 @@
         "videos": [
             {
                 "title": "Introduction to Carrom",
-                "video_url": "https://www.youtube.com/embed/24ug8IGCWdU",
+                "video_url": "https://www.youtube.com/watch?v=24ug8IGCWdU",
                 "thumbnail_image": "https://img.youtube.com/vi/24ug8IGCWdU/hqdefault.jpg"
             }
         ]
@@ -15,108 +15,238 @@
         "videos": [
             {
                 "title": "Champion Cut, Straight cut, Cross cut",
-                "video_url": "https://www.youtube.com/embed/6t1kn2wzNOo",
+                "video_url": "https://www.youtube.com/watch?v=6t1kn2wzNOo",
                 "thumbnail_image": "https://img.youtube.com/vi/6t1kn2wzNOo/hqdefault.jpg"
             },
             {
                 "title": "Champion Double, Cross double",
-                "video_url": "https://www.youtube.com/embed/rTVzsvknhOA",
+                "video_url": "https://www.youtube.com/watch?v=rTVzsvknhOA",
                 "thumbnail_image": "https://img.youtube.com/vi/rTVzsvknhOA/hqdefault.jpg"
             },
             {
                 "title": "Champion Langda Rebound",
-                "video_url": "https://www.youtube.com/embed/aJkKdyOjJjs",
+                "video_url": "https://www.youtube.com/watch?v=aJkKdyOjJjs",
                 "thumbnail_image": "https://img.youtube.com/vi/aJkKdyOjJjs/hqdefault.jpg"
             },
             {
                 "title": "Champion Wrong shot",
-                "video_url": "https://www.youtube.com/embed/uvqYRLRcIAQ",
+                "video_url": "https://www.youtube.com/watch?v=uvqYRLRcIAQ",
                 "thumbnail_image": "https://img.youtube.com/vi/uvqYRLRcIAQ/hqdefault.jpg"
             },
             {
                 "title": "Champion Glance",
-                "video_url": "https://www.youtube.com/embed/uKJJHu9cWZc",
+                "video_url": "https://www.youtube.com/watch?v=uKJJHu9cWZc",
                 "thumbnail_image": "https://img.youtube.com/vi/uKJJHu9cWZc/hqdefault.jpg"
             },
             {
                 "title": "Champion wrong pair",
-                "video_url": "https://www.youtube.com/embed/I-Yf9PghHA0",
+                "video_url": "https://www.youtube.com/watch?v=I-Yf9PghHA0",
                 "thumbnail_image": "https://img.youtube.com/vi/I-Yf9PghHA0/hqdefault.jpg"
             },
             {
                 "title": "Champion Touch",
-                "video_url": "https://www.youtube.com/embed/fBb0agfqcwo",
+                "video_url": "https://www.youtube.com/watch?v=fBb0agfqcwo",
                 "thumbnail_image": "https://img.youtube.com/vi/fBb0agfqcwo/hqdefault.jpg"
             },
             {
                 "title": "Champion Advantages of Touch",
-                "video_url": "https://www.youtube.com/embed/InPNee7HV4c",
+                "video_url": "https://www.youtube.com/watch?v=InPNee7HV4c",
                 "thumbnail_image": "https://img.youtube.com/vi/InPNee7HV4c/hqdefault.jpg"
             },
             {
                 "title": "Champion second, cross second, cross third",
-                "video_url": "https://www.youtube.com/embed/LKgGD94MhJc",
+                "video_url": "https://www.youtube.com/watch?v=LKgGD94MhJc",
                 "thumbnail_image": "https://img.youtube.com/vi/LKgGD94MhJc/hqdefault.jpg"
             },
             {
                 "title": "Champion press - 1",
-                "video_url": "https://www.youtube.com/embed/GpOykL199gU",
+                "video_url": "https://www.youtube.com/watch?v=GpOykL199gU",
                 "thumbnail_image": "https://img.youtube.com/vi/GpOykL199gU/hqdefault.jpg"
             },
             {
                 "title": "Champion press - 2",
-                "video_url": "https://www.youtube.com/embed/q0jlG9OXKLI",
+                "video_url": "https://www.youtube.com/watch?v=q0jlG9OXKLI",
                 "thumbnail_image": "https://img.youtube.com/vi/q0jlG9OXKLI/hqdefault.jpg"
             },
             {
                 "title": "Champion Force",
-                "video_url": "https://www.youtube.com/embed/8A1cZ-yMZEI",
+                "video_url": "https://www.youtube.com/watch?v=8A1cZ-yMZEI",
                 "thumbnail_image": "https://img.youtube.com/vi/8A1cZ-yMZEI/hqdefault.jpg"
             },
             {
                 "title": "Champion Bomb",
-                "video_url": "https://www.youtube.com/embed/CL64i7ExkSc",
+                "video_url": "https://www.youtube.com/watch?v=CL64i7ExkSc",
                 "thumbnail_image": "https://img.youtube.com/vi/CL64i7ExkSc/hqdefault.jpg"
             },
             {
                 "title": "Champion Rolling of coin",
-                "video_url": "https://www.youtube.com/embed/lGIEPr4z9NI",
+                "video_url": "https://www.youtube.com/watch?v=lGIEPr4z9NI",
                 "thumbnail_image": "https://img.youtube.com/vi/lGIEPr4z9NI/hqdefault.jpg"
             },
             {
                 "title": "Champion Rolling of striker",
-                "video_url": "https://www.youtube.com/embed/h_67KxeDtzc",
+                "video_url": "https://www.youtube.com/watch?v=h_67KxeDtzc",
                 "thumbnail_image": "https://img.youtube.com/vi/h_67KxeDtzc/hqdefault.jpg"
             },
             {
                 "title": "Champion Defense",
-                "video_url": "https://www.youtube.com/embed/HOxn4Q-1VtY",
+                "video_url": "https://www.youtube.com/watch?v=HOxn4Q-1VtY",
                 "thumbnail_image": "https://img.youtube.com/vi/HOxn4Q-1VtY/hqdefault.jpg"
             },
             {
                 "title": "Champion Advance strokes",
-                "video_url": "https://www.youtube.com/embed/SCY7KuCBT7Q",
+                "video_url": "https://www.youtube.com/watch?v=SCY7KuCBT7Q",
                 "thumbnail_image": "https://img.youtube.com/vi/SCY7KuCBT7Q/hqdefault.jpg"
             },
             {
                 "title": "Champion spin",
-                "video_url": "https://www.youtube.com/embed/y80C9BfWVGQ",
+                "video_url": "https://www.youtube.com/watch?v=y80C9BfWVGQ",
                 "thumbnail_image": "https://img.youtube.com/vi/y80C9BfWVGQ/hqdefault.jpg"
             },
             {
                 "title": "Champion Winning strokes",
-                "video_url": "https://www.youtube.com/embed/PJG08khutoA",
+                "video_url": "https://www.youtube.com/watch?v=PJG08khutoA",
                 "thumbnail_image": "https://img.youtube.com/vi/PJG08khutoA/hqdefault.jpg"
             },
             {
                 "title": "Champion Exhibition strokes",
-                "video_url": "https://www.youtube.com/embed/86Y52mCU7a4",
+                "video_url": "https://www.youtube.com/watch?v=86Y52mCU7a4",
                 "thumbnail_image": "https://img.youtube.com/vi/86Y52mCU7a4/hqdefault.jpg"
             },
             {
                 "title": "Champion Physical Excercizes",
-                "video_url": "https://www.youtube.com/embed/uehqA-vy8g8",
+                "video_url": "https://www.youtube.com/watch?v=uehqA-vy8g8",
                 "thumbnail_image": "https://img.youtube.com/vi/uehqA-vy8g8/hqdefault.jpg"
+            },
+            {
+                "title": "Champion How to level striker",
+                "video_url": "https://www.youtube.com/watch?v=QvW-Pd-FTow",
+                "thumbnail_image": "https://img.youtube.com/vi/QvW-Pd-FTow/hqdefault.jpg"
+            }
+        ]
+    },
+    "arun-deshpande-intermediate-course": {
+        "name": "Arun Deshpande - Intermediate course",
+        "videos": [
+            {
+                "title": "Intermediate Science behind the game, sitting posion grips, Spin",
+                "video_url": "https://www.youtube.com/watch?v=WMgKG4_QdkQ",
+                "thumbnail_image": "https://img.youtube.com/vi/WMgKG4_QdkQ/hqdefault.jpg"
+            },
+            {
+                "title": "Intermediate Break",
+                "video_url": "https://www.youtube.com/watch?v=C7dJTZpO-ZY",
+                "thumbnail_image": "https://img.youtube.com/vi/C7dJTZpO-ZY/hqdefault.jpg"
+            },
+            {
+                "title": "Intermediate Cut, Straight cut, Cross cut - 1",
+                "video_url": "https://www.youtube.com/watch?v=JxIeJXYLCQI",
+                "thumbnail_image": "https://img.youtube.com/vi/JxIeJXYLCQI/hqdefault.jpg"
+            },
+            {
+                "title": "Intermediate Double",
+                "video_url": "https://www.youtube.com/watch?v=SrJ1eZnvetE",
+                "thumbnail_image": "https://img.youtube.com/vi/SrJ1eZnvetE/hqdefault.jpg"
+            },
+            {
+                "title": "Intermediate Hook",
+                "video_url": "https://www.youtube.com/watch?v=bQlODS_M5Hc",
+                "thumbnail_image": "https://img.youtube.com/vi/bQlODS_M5Hc/hqdefault.jpg"
+            },
+            {
+                "title": "Intermediate Rebound and Langda Rebound",
+                "video_url": "https://www.youtube.com/watch?v=yb9np9KPXV4",
+                "thumbnail_image": "https://img.youtube.com/vi/yb9np9KPXV4/hqdefault.jpg"
+            },
+            {
+                "title": "Intermediate Straight shot, Wrong shot",
+                "video_url": "https://www.youtube.com/watch?v=XOGjzZWC2iU",
+                "thumbnail_image": "https://img.youtube.com/vi/XOGjzZWC2iU/hqdefault.jpg"
+            },
+            {
+                "title": "Intermediate Brush, Glance, Deflection",
+                "video_url": "https://www.youtube.com/watch?v=7fk1KvxpWOM",
+                "thumbnail_image": "https://img.youtube.com/vi/7fk1KvxpWOM/hqdefault.jpg"
+            },
+            {
+                "title": "Intermediate Pair, Wrong pair",
+                "video_url": "https://www.youtube.com/watch?v=JUvhQPLyq4w",
+                "thumbnail_image": "https://img.youtube.com/vi/JUvhQPLyq4w/hqdefault.jpg"
+            },
+            {
+                "title": "Intermediate Touch",
+                "video_url": "https://www.youtube.com/watch?v=Jyk5FQB6gxY",
+                "thumbnail_image": "https://img.youtube.com/vi/Jyk5FQB6gxY/hqdefault.jpg"
+            },
+            {
+                "title": "Intermediate combination of touch and Third pocket",
+                "video_url": "https://www.youtube.com/watch?v=bJWs4zAS6xI",
+                "thumbnail_image": "https://img.youtube.com/vi/bJWs4zAS6xI/hqdefault.jpg"
+            },
+            {
+                "title": "Intermediate combination of pair and Double",
+                "video_url": "https://www.youtube.com/watch?v=97stbPKDJPs",
+                "thumbnail_image": "https://img.youtube.com/vi/97stbPKDJPs/hqdefault.jpg"
+            },
+            {
+                "title": "Intermediate Turning, follow",
+                "video_url": "https://www.youtube.com/watch?v=XvZAwjLy_ZY",
+                "thumbnail_image": "https://img.youtube.com/vi/XvZAwjLy_ZY/hqdefault.jpg"
+            },
+            {
+                "title": "Intermediate Third pocket, Cross third pocket",
+                "video_url": "https://www.youtube.com/watch?v=4VnYN81vPE4",
+                "thumbnail_image": "https://img.youtube.com/vi/4VnYN81vPE4/hqdefault.jpg"
+            },
+            {
+                "title": "Intermediate Second pocket, Cross second pocket",
+                "video_url": "https://www.youtube.com/watch?v=78mP_-FbTa4",
+                "thumbnail_image": "https://img.youtube.com/vi/78mP_-FbTa4/hqdefault.jpg"
+            },
+            {
+                "title": "Intermediate Press",
+                "video_url": "https://www.youtube.com/watch?v=QKbE4Op9kdE",
+                "thumbnail_image": "https://img.youtube.com/vi/QKbE4Op9kdE/hqdefault.jpg"
+            },
+            {
+                "title": "Intermediate Side Press",
+                "video_url": "https://www.youtube.com/watch?v=CCUxYst3nac",
+                "thumbnail_image": "https://img.youtube.com/vi/CCUxYst3nac/hqdefault.jpg"
+            },
+            {
+                "title": "Intermediate Force 1",
+                "video_url": "https://www.youtube.com/watch?v=8vMzXC56nEM",
+                "thumbnail_image": "https://img.youtube.com/vi/8vMzXC56nEM/hqdefault.jpg"
+            },
+            {
+                "title": "Intermediate Force 2",
+                "video_url": "https://www.youtube.com/watch?v=th00dfyS4xw",
+                "thumbnail_image": "https://img.youtube.com/vi/th00dfyS4xw/hqdefault.jpg"
+            },
+            {
+                "title": "Intermediate Slip, Striker slip, Double touch",
+                "video_url": "https://www.youtube.com/watch?v=N_aXdUnc0jo",
+                "thumbnail_image": "https://img.youtube.com/vi/N_aXdUnc0jo/hqdefault.jpg"
+            },
+            {
+                "title": "Intermediate Bomb",
+                "video_url": "https://www.youtube.com/watch?v=Ixb_Oa_j9JQ",
+                "thumbnail_image": "https://img.youtube.com/vi/Ixb_Oa_j9JQ/hqdefault.jpg"
+            },
+            {
+                "title": "Intermediate Defense",
+                "video_url": "https://www.youtube.com/watch?v=3E_TufnQsFY",
+                "thumbnail_image": "https://img.youtube.com/vi/3E_TufnQsFY/hqdefault.jpg"
+            },
+            {
+                "title": "Intermediate Physical Exercises",
+                "video_url": "https://www.youtube.com/watch?v=qrnEZ5oan_o",
+                "thumbnail_image": "https://img.youtube.com/vi/qrnEZ5oan_o/hqdefault.jpg"
+            },
+            {
+                "title": "Intermediate How to level striker",
+                "video_url": "https://www.youtube.com/watch?v=2toKjVwJohw",
+                "thumbnail_image": "https://img.youtube.com/vi/2toKjVwJohw/hqdefault.jpg"
             }
         ]
     }
