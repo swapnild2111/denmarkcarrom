@@ -7,6 +7,11 @@
                 "title": "Introduction to Carrom",
                 "video_url": "https://www.youtube.com/watch?v=24ug8IGCWdU",
                 "thumbnail_image": "https://img.youtube.com/vi/24ug8IGCWdU/hqdefault.jpg"
+            },
+            {
+                "title": "Golden Carrom Treasure by Sir Arun Deshpande",
+                "video_url": "https://www.youtube.com/watch?v=aw2JB5YLc5k",
+                "thumbnail_image": "https://img.youtube.com/vi/aw2JB5YLc5k/hqdefault.jpg"
             }
         ]
     },
@@ -247,6 +252,76 @@
                 "title": "Intermediate How to level striker",
                 "video_url": "https://www.youtube.com/watch?v=2toKjVwJohw",
                 "thumbnail_image": "https://img.youtube.com/vi/2toKjVwJohw/hqdefault.jpg"
+            }
+        ]
+    },
+    "arun-deshpande-beginner-course": {
+        "name": "Arun Deshpande - Beginner course",
+        "videos": [
+            {
+                "title": "Beginners Science Behind the game, How to arrange coins, Breaks",
+                "video_url": "https://www.youtube.com/watch?v=Rm17_RqoikQ",
+                "thumbnail_image": "https://img.youtube.com/vi/Rm17_RqoikQ/hqdefault.jpg"
+            },
+            {
+                "title": "Beginners Break",
+                "video_url": "https://www.youtube.com/watch?v=1BjaxJAWo6w",
+                "thumbnail_image": "https://img.youtube.com/vi/1BjaxJAWo6w/hqdefault.jpg"
+            },
+            {
+                "title": "Beginners Equipment and Rules",
+                "video_url": "https://www.youtube.com/watch?v=8sJhAiqZflA",
+                "thumbnail_image": "https://img.youtube.com/vi/8sJhAiqZflA/hqdefault.jpg"
+            },
+            {
+                "title": "Beginners Grip",
+                "video_url": "https://www.youtube.com/watch?v=FSmw8VuAYss",
+                "thumbnail_image": "https://img.youtube.com/vi/FSmw8VuAYss/hqdefault.jpg"
+            },
+            {
+                "title": "Beginners Thumbing and straight coins - 1",
+                "video_url": "https://www.youtube.com/watch?v=fx_RqJu4h4w",
+                "thumbnail_image": "https://img.youtube.com/vi/fx_RqJu4h4w/hqdefault.jpg"
+            },
+            {
+                "title": "Beginners Cut, Straight cut",
+                "video_url": "https://www.youtube.com/watch?v=SHY0TIumWlU",
+                "thumbnail_image": "https://img.youtube.com/vi/SHY0TIumWlU/hqdefault.jpg"
+            },
+            {
+                "title": "Beginners Push",
+                "video_url": "https://www.youtube.com/watch?v=PwvNZt4alEU",
+                "thumbnail_image": "https://img.youtube.com/vi/PwvNZt4alEU/hqdefault.jpg"
+            },
+            {
+                "title": "Beginners Straight Shot",
+                "video_url": "https://www.youtube.com/watch?v=yBSCnm8ZnV8",
+                "thumbnail_image": "https://img.youtube.com/vi/yBSCnm8ZnV8/hqdefault.jpg"
+            },
+            {
+                "title": "Beginners Double",
+                "video_url": "https://www.youtube.com/watch?v=d_aTDpLBXM8",
+                "thumbnail_image": "https://img.youtube.com/vi/d_aTDpLBXM8/hqdefault.jpg"
+            },
+            {
+                "title": "Beginners Rebound",
+                "video_url": "https://www.youtube.com/watch?v=D0obzouKqGA",
+                "thumbnail_image": "https://img.youtube.com/vi/D0obzouKqGA/hqdefault.jpg"
+            },
+            {
+                "title": "Beginners Turning",
+                "video_url": "https://www.youtube.com/watch?v=cpVkLMfFl6g",
+                "thumbnail_image": "https://img.youtube.com/vi/cpVkLMfFl6g/hqdefault.jpg"
+            },
+            {
+                "title": "Beginners Brush, Glance",
+                "video_url": "https://www.youtube.com/watch?v=T-QcVCGfPcE",
+                "thumbnail_image": "https://img.youtube.com/vi/T-QcVCGfPcE/hqdefault.jpg"
+            },
+            {
+                "title": "Beginners Wrong Shot",
+                "video_url": "https://www.youtube.com/watch?v=wkVw3asSn58",
+                "thumbnail_image": "https://img.youtube.com/vi/wkVw3asSn58/hqdefault.jpg"
             }
         ]
     }
