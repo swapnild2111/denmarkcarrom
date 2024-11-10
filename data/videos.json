@@ -1,6 +1,8 @@
 {
     "carrom-intro": {
         "name": "Carrom Introduction",
+        "photo": "assets/img/misc/carrom_popup.jpg",
+        "description": "Carrom, a classic tabletop board game, has been beloved by people of all ages for centuries. Its roots can be traced back to the 18th century in the Indian subcontinent, where it is believed to have originated in the palaces of Indian Maharajas. Over time, carrom has expanded beyond its Indian origins and is now enjoyed on a national and international level, with skilled players participating in prestigious world championships.",
         "default": true,
         "videos": [
             {
@@ -17,6 +19,8 @@
     },
     "arun-deshpande-champion-course": {
         "name": "Arun Deshpande - Champion course",
+        "photo": "assets/img/gallery/arun_deshpande.jpg",
+        "description": "Arun Deshpande is a 7 times Maharashtra carrom champion, National champion in singles,doubles, mixed doubles and vetaran singles. Multiple times he was National & International carrom coach. He also conducts individual coaching class at Thane for 4 days one to one. He has written 2 carrom books namely Carrom Technique and Skll and players' Guide. Produced 4 VCDs on carrom namely Carrom Technique, Carrom Treasure, Amazing Strokes and Exhibition strokes for stress relief.",
         "videos": [
             {
                 "title": "Champion Cut, Straight cut, Cross cut",
@@ -132,6 +136,8 @@
     },
     "arun-deshpande-intermediate-course": {
         "name": "Arun Deshpande - Intermediate course",
+        "photo": "assets/img/gallery/arun_deshpande.jpg",
+        "description": "Arun Deshpande is a 7 times Maharashtra carrom champion, National champion in singles,doubles, mixed doubles and vetaran singles. Multiple times he was National & International carrom coach. He also conducts individual coaching class at Thane for 4 days one to one. He has written 2 carrom books namely Carrom Technique and Skll and players' Guide. Produced 4 VCDs on carrom namely Carrom Technique, Carrom Treasure, Amazing Strokes and Exhibition strokes for stress relief.",
         "videos": [
             {
                 "title": "Intermediate Science behind the game, sitting posion grips, Spin",
@@ -257,6 +263,8 @@
     },
     "arun-deshpande-beginner-course": {
         "name": "Arun Deshpande - Beginner course",
+        "photo": "assets/img/gallery/arun_deshpande.jpg",
+        "description": "Arun Deshpande is a 7 times Maharashtra carrom champion, National champion in singles,doubles, mixed doubles and vetaran singles. Multiple times he was National & International carrom coach. He also conducts individual coaching class at Thane for 4 days one to one. He has written 2 carrom books namely Carrom Technique and Skll and players' Guide. Produced 4 VCDs on carrom namely Carrom Technique, Carrom Treasure, Amazing Strokes and Exhibition strokes for stress relief.",
         "videos": [
             {
                 "title": "Beginners Science Behind the game, How to arrange coins, Breaks",
@@ -322,6 +330,104 @@
                 "title": "Beginners Wrong Shot",
                 "video_url": "https://www.youtube.com/watch?v=wkVw3asSn58",
                 "thumbnail_image": "https://img.youtube.com/vi/wkVw3asSn58/hqdefault.jpg"
+            }
+        ]
+    },
+    "suhas-kambli": {
+        "name": "Suhas Kambli",
+        "photo": "assets/img/gallery/suhas_kambli.jpg",
+        "description": "Suhas Kambli (Maharashtra) since 1979 when he won his sixth national title in 1992 at Faridabad. Suhas Kambli had won five national titles.",
+        "videos": [
+            {
+                "title": "Suhas Kambli - the legend - 1",
+                "video_url": "https://www.youtube.com/watch?v=trbxi_H6KwI",
+                "thumbnail_image": "https://img.youtube.com/vi/trbxi_H6KwI/hqdefault.jpg"
+            },
+            {
+                "title": "Suhas Kambli - the legend - 2",
+                "video_url": "https://www.youtube.com/watch?v=CuqeDbxhoEk",
+                "thumbnail_image": "https://img.youtube.com/vi/CuqeDbxhoEk/hqdefault.jpg"
+            },
+            {
+                "title": "Extreme shots",
+                "video_url": "https://www.youtube.com/watch?v=lhoecMZCwlI",
+                "thumbnail_image": "https://img.youtube.com/vi/lhoecMZCwlI/hqdefault.jpg"
+            }
+        ]
+    },
+    "neeraj-sympathy": {
+        "name": "Neeraj Sympathy",
+        "photo": "assets/img/gallery/neeraj_sympathy.jpg",
+        "description": "Neeraj Sympathy has been a carrom coach for Indian carrom team and works as Assistant Secretary General of ICF.",
+        "videos": [
+            {
+                "title": "Practice Exercises I",
+                "video_url": "https://www.youtube.com/watch?v=lJuK82P9rDM",
+                "thumbnail_image": "https://img.youtube.com/vi/lJuK82P9rDM/hqdefault.jpg"
+            },
+            {
+                "title": "Practice Exercises II",
+                "video_url": "https://www.youtube.com/watch?v=E-JC5hJCsy8",
+                "thumbnail_image": "https://img.youtube.com/vi/E-JC5hJCsy8/hqdefault.jpg"
+            },
+            {
+                "title": "Practice Exercises III",
+                "video_url": "https://www.youtube.com/watch?v=U-iM_4Sd17c",
+                "thumbnail_image": "https://img.youtube.com/vi/U-iM_4Sd17c/hqdefault.jpg"
+            },
+            {
+                "title": "Practice Exercises IV",
+                "video_url": "https://www.youtube.com/watch?v=Gr_mDlp-LK4",
+                "thumbnail_image": "https://img.youtube.com/vi/Gr_mDlp-LK4/hqdefault.jpg"
+            },
+            {
+                "title": "Practice Exercises V",
+                "video_url": "https://www.youtube.com/watch?v=QJRI81ns-vI",
+                "thumbnail_image": "https://img.youtube.com/vi/QJRI81ns-vI/hqdefault.jpg"
+            },
+            {
+                "title": "Essential Techniques for Tournament Players - Part 1",
+                "video_url": "https://www.youtube.com/watch?v=dR9RGgQz6Dg",
+                "thumbnail_image": "https://img.youtube.com/vi/dR9RGgQz6Dg/hqdefault.jpg"
+            },
+            {
+                "title": "Essential Techniques for Tournament Players - Part 2",
+                "video_url": "https://www.youtube.com/watch?v=8augZ07dxqo",
+                "thumbnail_image": "https://img.youtube.com/vi/8augZ07dxqo/hqdefault.jpg"
+            }
+        ]
+    },
+    "maria-irudayam": {
+        "name": "Maria Irudayam",
+        "photo": "assets/img/gallery/maria.jpg",
+        "description": "Anthony Maria Irudayam is a two-time World Carrom Champion and nine-time national champion of India. He was awarded the prestigious Arjuna Award, a sporting honour presented by the Government of India, in 1996. As of 2007, he is the only person to have received the award for carrom.",
+        "videos": [
+            {
+                "title": "King of the Board - Maria Irudayam | 2x World Champion & Arjuna Awardee",
+                "video_url": "https://www.youtube.com/watch?v=-UQyVRYxnCk",
+                "thumbnail_image": "https://img.youtube.com/vi/-UQyVRYxnCk/hqdefault.jpg"
+            },
+            {
+                "title": "Maria Irudayam vs Balakotaiah Team Event",
+                "video_url": "https://www.youtube.com/watch?v=A7Ma4UUPJsc",
+                "thumbnail_image": "https://img.youtube.com/vi/A7Ma4UUPJsc/hqdefault.jpg"
+            }
+        ]
+    },
+    "suryakant-bhairalu": {
+        "name": "Suryakant Bhairalu",
+        "photo": "assets/img/gallery/surya.webp",
+        "description": "Former national champion Suryakant Bhairalu and started career with bet games",
+        "videos": [
+            {
+                "title": "Carrom - one frame with Suryakant Bhairalu",
+                "video_url": "https://www.youtube.com/watch?v=eCFKCVsDqCc",
+                "thumbnail_image": "https://img.youtube.com/vi/eCFKCVsDqCc/hqdefault.jpg"
+            },
+            {
+                "title": "Suryakant Bhairalu vs Harshad Gotankar",
+                "video_url": "https://www.youtube.com/live/PYvQ3tz6blw",
+                "thumbnail_image": "https://img.youtube.com/vi/PYvQ3tz6blw/hqdefault.jpg"
             }
         ]
     }
