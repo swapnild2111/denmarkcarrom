@@ -1,5 +1,5 @@
 {
-    "2024-2025": [
+    "2024": [
         {
             "date": "16",
             "day": "Saturday",
@@ -59,7 +59,9 @@
             "link": "https://fb.me/e/BJbUF2cJ4",
             "description": "Copenhagen carrom ranking tournament",
             "result": "-"
-        },
+        }
+    ],
+    "2025": [
         {
             "date": "18",
             "day": "Saturday",

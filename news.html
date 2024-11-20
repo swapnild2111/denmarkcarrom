@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>DKCF | Denmark Carrom Federation | Videos</title>
+  <title>DKCF | Denmark Carrom Federation | News</title>
   <meta content="Denmark Carrom Federation, Europe Carrom" name="description">
-  <meta content="Carrom, Board games, Denmark, Europe, Indian games, Carrom Federation" name="keywords">
+  <meta content="Carrom, Board games, Denmark, Europe, Indian games, Carrom Federation" name="yearwords">
 
   <!-- Favicons -->
   <link href="assets/img/favicon-32x32.svg" rel="icon">
@@ -41,8 +41,6 @@
 
     gtag('config', 'G-FX6FYFW63V');
   </script>
-
-  <!-- <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script> -->
 
   <!-- =======================================================
   * Template Name: QuickStart
@@ -94,32 +92,21 @@
 
     <br /><br />
 
-    <!-- Portfolio Section -->
-    <!-- Get youtube thumbnails from http://www.get-youtube-thumbnail.com/ -->
-    <section id="portfolio" class="portfolio section">
+    <!-- Events Section -->
+    <section id="events" class="features section">
       <div class="container section-title" data-aos="fade-up">
-        <h2>Videos</h2>
-        <p>Carrom Learning videos, Courses, Gameplays & More</p>
+        <h2>European Carrom Tournaments Schedule</h2>
+        <p>We keep track of carrom tournaments happening in all over Europe countries.</p>
       </div>
-
-      <div class="container-fluid isotope-layout" data-default-filter=".filter-carrom-intro" data-layout="masonry"
-        data-sort="original-order">
-
-        <div class="row col-lg-12 col-md-12" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-3 col-md-6 portfolio-item isotope-item filter-app">
-            <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-              <!-- Navigation menu will be populated with generateNavigationHTML function -->
-            </ul>
-          </div>
-
-          <div class="col-lg-9 col-md-9">
-            <div class="isotope-container"></div>
-            <!-- Videos will be populated with generateVideosHTML function -->
-          </div>
+      <div class="container">
+        <div class="row">
+          <!-- <div class="responsive-iframe-container small-container"> -->
+          <iframe
+            src="https://calendar.google.com/calendar/embed?showNav=0&showTabs=0&ctz=Europe%2FCopenhagen&color=%238E24AA&mode=AGENDA&dates=20250101%2F20251231&hl=en&title=European%20Carrom%20Tournaments&showNav=0&src=N2NlZDkyNjc1YzQ0Mjk4ZDAzZWNmOWNiOTY2ZjAwNjU4ZWIwN2I1YzFmNTFiYzAzODU3MTMxNWY1MGFhYjE1YUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
+            style="border-width:0" frameborder="0" scrolling="yes" width="100%" height="500"></iframe>
+          <!-- </div> -->
         </div>
       </div>
-
     </section>
 
   </main>
@@ -230,143 +217,6 @@
   <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
   <script
     type="text/javascript">(function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[0] = 'EMAIL'; ftypes[0] = 'email'; fnames[6] = 'SUBJECT'; ftypes[6] = 'text'; fnames[7] = 'MESSAGE'; ftypes[7] = 'text'; fnames[8] = 'NAME'; ftypes[8] = 'text'; fnames[1] = 'FNAME'; ftypes[1] = 'text'; fnames[2] = 'LNAME'; ftypes[2] = 'text'; fnames[3] = 'ADDRESS'; ftypes[3] = 'address'; fnames[4] = 'PHONE'; ftypes[4] = 'phone'; fnames[5] = 'BIRTHDAY'; ftypes[5] = 'birthday'; }(jQuery)); var $mcj = jQuery.noConflict(true);</script>
-
-  <!-- Generate HTML based on videos.json -->
-  <script>
-    // Function to generate Navigation HTML
-    function generateNavigationHTML(data) {
-      const filters = document.querySelector('.portfolio-filters');
-      filters.innerHTML = '';  // Clear previous content if any
-
-      // Loop through each category in JSON data
-      for (const categoryKey in data) {
-        const category = data[categoryKey];
-
-        // Create filter item
-        const filterItem = document.createElement('li');
-        filterItem.setAttribute('data-filter', '.filter-' + categoryKey);
-        if (category.default) {
-          filterItem.className = 'filter-active';
-        }
-        filterItem.innerHTML = category.name;
-
-        // Append filter item to filters container
-        filters.appendChild(filterItem);
-      }
-    }
-    // Function to generate Videos HTML
-    function generateVideosHTML(data) {
-      const contentDiv = document.querySelector('.isotope-container');
-      contentDiv.innerHTML = '';  // Clear previous content if any
-
-      // Loop through each category in JSON data
-      for (const categoryKey in data) {
-        const category = data[categoryKey];
-
-        // Create category container
-        const categoryDiv = document.createElement('div');
-        if (category.videos.length <= 1) {
-          categoryDiv.className = 'col-lg-4 col-md-6 portfolio-item isotope-item filter-' + categoryKey;
-        } else {
-          categoryDiv.className = 'col-lg-12 col-md-6 portfolio-item isotope-item filter-' + categoryKey;
-        }
-
-        // Section for description
-        const info = document.createElement('section');
-        info.className = 'team section';
-        info.style = 'padding: 0px;';
-        info.innerHTML = '<div class="team-member d-flex align-items-start" style="opacity: 1 !important; transform: none !important; transition: none !important;">'+
-              '<div class="pic"><img loading="lazy" src="'+category.photo+'" class="img-fluid" alt=""></div>'+
-              '<div class="member-info">'+
-                '<h4>'+category.name+'</h4>'+
-                '<p>'+category.description+'</p>'+
-              '</div>'+
-            '</div>'
-        categoryDiv.appendChild(info);
-
-        // Create UL for list
-        const ul = document.createElement('ul');
-        ul.className = 'video-list featured';
-        categoryDiv.appendChild(ul);
-
-        // Loop through each video in the category
-        category.videos.forEach(video => {
-          // Create video item container
-          const videoItemDiv = document.createElement('li');
-          videoItemDiv.className = 'video featured';
-
-          // Create link for the video
-          var videoItemDivInnerHTML =
-            '<a data-fancybox target="_blank" href="' + video.video_url + '" class="featured-video">' +
-            '<figure style="background-image: url(' + video.thumbnail_image + ');">' +
-            '<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />' +
-            '<figcaption>' + video.title + '</figcaption>' +
-            '</figure>' +
-            '</a>';
-
-          videoItemDiv.innerHTML = videoItemDivInnerHTML;
-
-          // Append video item to videos container
-          ul.appendChild(videoItemDiv);
-        });
-
-        // Append category container to main content div
-        contentDiv.appendChild(categoryDiv);
-      }
-
-      // Use imagesLoaded to ensure all images are loaded before layout and reload isotope layout
-      imagesLoaded(contentDiv, function () {
-        document.querySelectorAll('.isotope-layout').forEach(function (isotopeItem) {
-          let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
-          let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
-          let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
-
-          let initIsotope;
-          imagesLoaded(isotopeItem.querySelector('.isotope-container'), function () {
-            initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
-              itemSelector: '.isotope-item',
-              layoutMode: layout,
-              filter: filter,
-              sortBy: sort
-            });
-          });
-
-          isotopeItem.querySelectorAll('.isotope-filters li').forEach(function (filters) {
-            filters.addEventListener('click', function () {
-              isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
-              this.classList.add('filter-active');
-              initIsotope.arrange({
-                filter: this.getAttribute('data-filter')
-              });
-              if (typeof aosInit === 'function') {
-                aosInit();
-              }
-            }, false);
-          });
-
-        });
-
-      });
-    }
-
-    // Fetch JSON data from an external file
-    fetch('./data/videos.json')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok ' + response.statusText);
-        }
-        return response.json();
-      })
-      .then(data => {
-        // Call the function with fetched JSON data
-        generateNavigationHTML(data);
-        generateVideosHTML(data);
-      })
-      .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-      });
-  </script>
-
 </body>
 
 </html>

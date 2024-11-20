@@ -34,7 +34,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FX6FYFW63V"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-FX6FYFW63V');
@@ -42,95 +42,98 @@
 
   <!-- Dynamic event generation -->
   <script>
-    function fetchJSONData() {
-        fetch("./data/events.json")
-            .then((res) => {
-              if (!res.ok) {
-                  throw new Error
-                      (`HTTP error! Status: ${res.status}`);
-              }
-              return res.json();
-            })
-            .then((data) => {
-                var calendarYears = Object.keys(data)
-                calendarYears.sort()
-                calendarYears.reverse()
+    function populateDKCFevents(data) {
+      const contentDiv = document.querySelector('.event_calendar');
+      contentDiv.innerHTML = '';  // Clear previous content if any
 
-                calendarYears.forEach(year => {
-                  var events = Object.values(data[year])
+      var calendarYears = Object.keys(data)
+      calendarYears.sort()
+      calendarYears.reverse()
 
-                  var event_calendar = document.createElement('div');
-                  event_calendar.id = 'row'
-                  event_calendar.className = 'row gy-4'
-                  document.getElementById('event_calendar').appendChild(event_calendar);
+      calendarYears.forEach(year => {
+        var events = Object.values(data[year])
 
-                  var event_year = document.createElement('div');
-                  event_year.id = year
-                  event_year.className = 'col-12'
-                  document.getElementById('row').appendChild(event_year);
+        var event_calendar = document.createElement('div');
+        event_calendar.id = 'row-dkcf'
+        event_calendar.className = 'row gy-4'
+        contentDiv.appendChild(event_calendar);
 
-                  var event_calendar_heading = document.createElement('div')
-                  event_calendar_heading.id = year + "-list"
-                  event_calendar_heading.className = "recent-activities card"
-                  document.getElementById(year).appendChild(event_calendar_heading);
+        var event_year = document.createElement('div');
+        event_year.id = year
+        event_year.className = 'col-12'
+        document.getElementById('row-dkcf').appendChild(event_year);
 
-                  var heading = '<div class="card-header"><h4>' + year + '</h4></div>';
-                  document.getElementById(year + '-list').innerHTML += heading;
+        var event_calendar_heading = document.createElement('div')
+        event_calendar_heading.id = year + "-list"
+        event_calendar_heading.className = "recent-activities card"
+        document.getElementById(year).appendChild(event_calendar_heading);
 
-                  var calendar = document.createElement('div');
-                  calendar.className = 'card-body no-padding';
-                  calendar.id = year + '-content';
-                  document.getElementById(year + '-list').appendChild(calendar);
+        var heading = '<div class="card-header"><h4>' + year + '</h4></div>';
+        document.getElementById(year + '-list').innerHTML += heading;
 
-                  var tableHtml = '<table class="table table-hover">' +
-                    '<thead>' +
-                    '<tr>' +
-                    '<th scope="col">Date</th>' +
-                    '<th scope="col">Event</th>' +
-                    '<th scope="col">Results</th>' +
-                    '</tr>' +
-                    '</thead>' +
-                    '<tbody>'
+        var calendar = document.createElement('div');
+        calendar.className = 'card-body no-padding';
+        calendar.id = year + '-content';
+        document.getElementById(year + '-list').appendChild(calendar);
 
-                  events.forEach(eventName => {
-                    var date = eventName.date;
-                    var day = eventName.day;
-                    var month = eventName.month;
-                    var yearNumber = eventName.year;
-                    var title = eventName.title;
-                    var link = eventName.link;
-                    var desc = eventName.description;
-                    var result = eventName.result;
-                    var eventRow = '<tr>'
-                    var eventLink = title
-                    if (title.includes("Open") === true || title.includes("International") === true) {
-                      eventRow = '<tr class="table-success">'
-                    }
-                    if (result != "-") {
-                      result = '<a href="' + result + '" target="_blank"><div class="fs-3 mb-2"><i class="bi bi-cloud-arrow-down-fill"></i></div></a>'
-                      eventRow = '<tr>'
-                    }
-                    if (link != "") {
-                      eventLink = '<a href="' + link + '" target="_blank">' + title + '</a>'
-                    }
-                    var event =
-                      eventRow +
-                      '<td scope="row"><b>' + date + '-' + month + '-' + yearNumber + '</b> <div class="subtext">(' + day + ')</div></td>' +
-                      '<td>' + eventLink + '</td>' +
-                      '<td>' + result + '</td>' +
-                      '</tr>'
-                    tableHtml += event;
-                  });
-                  tableHtml += '</tbody></table>'
-                  document.getElementById(year + '-content').innerHTML += tableHtml
+        var tableHtml = '<table class="table table-hover">' +
+          '<thead>' +
+          '<tr>' +
+          '<th scope="col">Date</th>' +
+          '<th scope="col">Event</th>' +
+          '<th scope="col">Results</th>' +
+          '</tr>' +
+          '</thead>' +
+          '<tbody>'
 
-                });
+        events.forEach(eventName => {
+          var date = eventName.date;
+          var day = eventName.day;
+          var month = eventName.month;
+          var yearNumber = eventName.year;
+          var title = eventName.title;
+          var link = eventName.link;
+          var desc = eventName.description;
+          var result = eventName.result;
+          var eventRow = '<tr>'
+          var eventLink = title
+          if (title.includes("Open") === true || title.includes("International") === true) {
+            eventRow = '<tr class="table-success">'
+          }
+          if (result != "-") {
+            result = '<a href="' + result + '" target="_blank"><div class="fs-3 mb-2"><i class="bi bi-cloud-arrow-down-fill"></i></div></a>'
+            eventRow = '<tr>'
+          }
+          if (link != "") {
+            eventLink = '<a href="' + link + '" target="_blank">' + title + '</a>'
+          }
+          var event =
+            eventRow +
+            '<td scope="row"><b>' + date + '-' + month + '-' + yearNumber + '</b> <div class="subtext">(' + day + ')</div></td>' +
+            '<td>' + eventLink + '</td>' +
+            '<td>' + result + '</td>' +
+            '</tr>'
+          tableHtml += event;
+        });
+        tableHtml += '</tbody></table>'
+        document.getElementById(year + '-content').innerHTML += tableHtml
 
-            })
-            .catch((error) =>
-                   console.error("Unable to fetch data:", error));
+      });
     }
-    fetchJSONData();
+
+    fetch("./data/events.json")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error
+            (`HTTP error! Status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        populateDKCFevents(data);
+      })
+      .catch((error) =>
+        console.error("Unable to fetch data:", error));
   </script>
 
   <!-- =======================================================
@@ -159,14 +162,14 @@
           <!-- <li><a href="index.html#about">About</a></li>
           <li><a href="index.html#services">Programs</a></li> -->
           <!-- <li><a href="index.html#coaching">Coaching</a></li> -->
-          <li><a href="index.html#team">Team</a></li>
+          <li><a href="news.html">News</a></li>
           <li><a href="events.html">Events</a></li>
           <li><a href="videos.html">Videos</a></li>
-          <li class="dropdown"><a href="learn.html"><span>Learn</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li class="dropdown"><a href="learn.html"><span>Learn</span> <i
+                class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="learn.html">What is Carrom?</a></li>
               <li><a href="learn.html#how">How to play?</a></li>
-              <!-- <li><a href="learn.html#videos">Videos</a></li> -->
             </ul>
           </li>
           <li><a href="index.html#contact">Contact</a></li>
@@ -181,16 +184,21 @@
 
   <main class="main">
 
-    <br/><br/>
+    <br /><br />
 
     <!-- Events Section -->
     <section id="events" class="features section">
       <div class="container section-title" data-aos="fade-up">
-        <h2>Carrom Events Schedule</h2>
-        <p>The Denmark Carrom Federation, in collaboration with its associated Carrom clubs throughout Denmark, hosts a variety of tournaments annually, including Regional, National, Ranking, and International events.</p>
+        <h2>Denmark Carrom Events Schedule</h2>
+        <p>The Denmark Carrom Federation, in collaboration with its associated Carrom clubs throughout Denmark, hosts a
+          variety of tournaments annually, including Regional, National, Ranking, and International events.</p>
       </div>
       <div class="container">
-        <div id="event_calendar"></div>
+        <div class="row">
+          <div class="col-12">
+            <div class="event_calendar"></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -234,7 +242,7 @@
             <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#services">Programs</a></li>
             <li><a href="index.html#coaching">Coaching</a></li>
-            <li><a href="index.html#team">Team</a></li>
+            <li><a href="news.html">News</a></li>
             <li><a href="events.html">Events</a></li>
           </ul>
         </div>
@@ -264,7 +272,8 @@
     </div> -->
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Denmark Carrom Federation</strong><span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Denmark Carrom Federation</strong><span>All Rights
+          Reserved</span></p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
@@ -277,7 +286,8 @@
   </footer>
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Preloader -->
   <div id="preloader"></div>
@@ -286,6 +296,7 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
   <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
@@ -297,7 +308,8 @@
 
   <!-- Subscription popup from mailchimp -->
   <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
-  <script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[6]='SUBJECT';ftypes[6]='text';fnames[7]='MESSAGE';ftypes[7]='text';fnames[8]='NAME';ftypes[8]='text';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+  <script
+    type="text/javascript">(function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[0] = 'EMAIL'; ftypes[0] = 'email'; fnames[6] = 'SUBJECT'; ftypes[6] = 'text'; fnames[7] = 'MESSAGE'; ftypes[7] = 'text'; fnames[8] = 'NAME'; ftypes[8] = 'text'; fnames[1] = 'FNAME'; ftypes[1] = 'text'; fnames[2] = 'LNAME'; ftypes[2] = 'text'; fnames[3] = 'ADDRESS'; ftypes[3] = 'address'; fnames[4] = 'PHONE'; ftypes[4] = 'phone'; fnames[5] = 'BIRTHDAY'; ftypes[5] = 'birthday'; }(jQuery)); var $mcj = jQuery.noConflict(true);</script>
 </body>
 
 </html>
