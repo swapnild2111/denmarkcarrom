@@ -15,7 +15,9 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -45,80 +47,136 @@
     function populateDKCFevents(data) {
       const contentDiv = document.querySelector('.event_calendar');
       contentDiv.innerHTML = '';  // Clear previous content if any
+      var events = Object.values(data["events"]);
 
-      var calendarYears = Object.keys(data)
-      calendarYears.sort()
-      calendarYears.reverse()
+      var event_calendar = document.createElement('div');
+      event_calendar.id = 'row-dkcf'
+      event_calendar.className = 'row gy-4'
+      contentDiv.appendChild(event_calendar);
 
-      calendarYears.forEach(year => {
-        var events = Object.values(data[year])
+      var event_upcoming = document.createElement('div');
+      event_upcoming.id = 'col-upcoming-dkcf'
+      event_upcoming.className = 'col-12'
+      document.getElementById('row-dkcf').appendChild(event_upcoming);
 
-        var event_calendar = document.createElement('div');
-        event_calendar.id = 'row-dkcf'
-        event_calendar.className = 'row gy-4'
-        contentDiv.appendChild(event_calendar);
+      var event_past = document.createElement('div');
+      event_past.id = 'col-past-dkcf'
+      event_past.className = 'col-12'
+      document.getElementById('row-dkcf').appendChild(event_past);
 
-        var event_year = document.createElement('div');
-        event_year.id = year
-        event_year.className = 'col-12'
-        document.getElementById('row-dkcf').appendChild(event_year);
+      var upcoming_dkcf_event_calendar_heading = document.createElement('div')
+      upcoming_dkcf_event_calendar_heading.id = "upcoming-dkcf-list"
+      upcoming_dkcf_event_calendar_heading.className = "recent-activities card"
+      upcoming_dkcf_event_calendar_heading.innerHTML = '<div class="card-header"><h4>Denmark Upcoming Events</h4></div>';
+      document.getElementById('col-upcoming-dkcf').appendChild(upcoming_dkcf_event_calendar_heading);
 
-        var event_calendar_heading = document.createElement('div')
-        event_calendar_heading.id = year + "-list"
-        event_calendar_heading.className = "recent-activities card"
-        document.getElementById(year).appendChild(event_calendar_heading);
+      var past_dkcf_event_calendar_heading = document.createElement('div')
+      past_dkcf_event_calendar_heading.id = "past-dkcf-list"
+      past_dkcf_event_calendar_heading.className = "recent-activities card"
+      past_dkcf_event_calendar_heading.innerHTML = '<div class="card-header"><h4>Denmark Past Events</h4></div>';
+      document.getElementById('col-past-dkcf').appendChild(past_dkcf_event_calendar_heading);
 
-        var heading = '<div class="card-header"><h4>' + year + '</h4></div>';
-        document.getElementById(year + '-list').innerHTML += heading;
+      var upcoming_calendar = document.createElement('div');
+      upcoming_calendar.className = 'card-body no-padding';
+      upcoming_calendar.id = 'upcoming-dkcf-content';
+      document.getElementById('upcoming-dkcf-list').appendChild(upcoming_calendar);
 
-        var calendar = document.createElement('div');
-        calendar.className = 'card-body no-padding';
-        calendar.id = year + '-content';
-        document.getElementById(year + '-list').appendChild(calendar);
+      var past_calendar = document.createElement('div');
+      past_calendar.className = 'card-body no-padding';
+      past_calendar.id = 'past-dkcf-content';
+      document.getElementById('past-dkcf-list').appendChild(past_calendar);
 
-        var tableHtml = '<table class="table table-hover">' +
-          '<thead>' +
-          '<tr>' +
-          '<th scope="col">Date</th>' +
-          '<th scope="col">Event</th>' +
-          '<th scope="col">Results</th>' +
-          '</tr>' +
-          '</thead>' +
-          '<tbody>'
+      var upcomingTableHtml = '<table class="table table-hover">' +
+        '<thead>' +
+        '<tr>' +
+        '<th scope="col">Date</th>' +
+        '<th scope="col">Event</th>' +
+        '<th scope="col">Results</th>' +
+        '</tr>' +
+        '</thead>' +
+        '<tbody>'
 
-        events.forEach(eventName => {
-          var date = eventName.date;
-          var day = eventName.day;
-          var month = eventName.month;
-          var yearNumber = eventName.year;
-          var title = eventName.title;
-          var link = eventName.link;
-          var desc = eventName.description;
-          var result = eventName.result;
-          var eventRow = '<tr>'
-          var eventLink = title
-          if (title.includes("Open") === true || title.includes("International") === true) {
-            eventRow = '<tr class="table-success">'
-          }
-          if (result != "-") {
-            result = '<a href="' + result + '" target="_blank"><div class="fs-3 mb-2"><i class="bi bi-cloud-arrow-down-fill"></i></div></a>'
-            eventRow = '<tr>'
-          }
-          if (link != "") {
-            eventLink = '<a href="' + link + '" target="_blank">' + title + '</a>'
-          }
-          var event =
-            eventRow +
-            '<td scope="row"><b>' + date + '-' + month + '-' + yearNumber + '</b> <div class="subtext">(' + day + ')</div></td>' +
-            '<td>' + eventLink + '</td>' +
-            '<td>' + result + '</td>' +
-            '</tr>'
-          tableHtml += event;
-        });
-        tableHtml += '</tbody></table>'
-        document.getElementById(year + '-content').innerHTML += tableHtml
+      var currentYear = new Date().getFullYear();
+      events.sort()
 
+      events.forEach(eventEntry => {
+        var date = eventEntry.date;
+        var day = eventEntry.day;
+        var month = eventEntry.month;
+        var yearNumber = eventEntry.year;
+        var title = eventEntry.title;
+        var link = eventEntry.link;
+        var desc = eventEntry.description;
+        var result = eventEntry.result;
+        var eventRow = '<tr>'
+        var eventLink = title
+
+        if (result != "-") {
+          return
+        }
+
+        if (result != "-") {
+          result = '<a href="' + result + '" target="_blank"><div class="fs-3 mb-2"><i class="bi bi-cloud-arrow-down-fill"></i></div></a>'
+          eventRow = '<tr>'
+        }
+        if (link != "") {
+          eventLink = '<a href="' + link + '" target="_blank">' + title + '</a>'
+        }
+        var event =
+          eventRow +
+          '<td scope="row"><b>' + date + '-' + month + '-' + yearNumber + '</b> <div class="subtext">(' + day + ')</div></td>' +
+          '<td>' + eventLink + '</td>' +
+          '<td>' + result + '</td>' +
+          '</tr>'
+        upcomingTableHtml += event;
       });
+      upcomingTableHtml += '</tbody></table>'
+      document.getElementById('upcoming-dkcf-content').innerHTML += upcomingTableHtml
+
+      var pastTableHtml = '<table class="table table-hover">' +
+        '<thead>' +
+        '<tr>' +
+        '<th scope="col">Date</th>' +
+        '<th scope="col">Event</th>' +
+        '<th scope="col">Results</th>' +
+        '</tr>' +
+        '</thead>' +
+        '<tbody>'
+
+      events.forEach(eventEntry => {
+        var date = eventEntry.date;
+        var day = eventEntry.day;
+        var month = eventEntry.month;
+        var yearNumber = eventEntry.year;
+        var title = eventEntry.title;
+        var link = eventEntry.link;
+        var desc = eventEntry.description;
+        var result = eventEntry.result;
+        var eventRow = '<tr>'
+        var eventLink = title
+
+        if (result == "-") {
+          return
+        }
+
+        if (result != "-") {
+          result = '<a href="' + result + '" target="_blank"><div class="fs-3 mb-2"><i class="bi bi-cloud-arrow-down-fill"></i></div></a>'
+          eventRow = '<tr>'
+        }
+        if (link != "") {
+          eventLink = '<a href="' + link + '" target="_blank">' + title + '</a>'
+        }
+        var event =
+          eventRow +
+          '<td scope="row"><b>' + date + '-' + month + '-' + yearNumber + '</b> <div class="subtext">(' + day + ')</div></td>' +
+          '<td>' + eventLink + '</td>' +
+          '<td>' + result + '</td>' +
+          '</tr>'
+        pastTableHtml += event;
+      });
+      pastTableHtml += '</tbody></table>'
+      document.getElementById('past-dkcf-content').innerHTML += pastTableHtml
+
     }
 
     fetch("./data/events.json")
@@ -162,7 +220,6 @@
           <!-- <li><a href="index.html#about">About</a></li>
           <li><a href="index.html#services">Programs</a></li> -->
           <!-- <li><a href="index.html#coaching">Coaching</a></li> -->
-          <!-- <li><a href="news.html">News</a></li> -->
           <li><a href="events.html">Events</a></li>
           <li><a href="videos.html">Videos</a></li>
           <li class="dropdown"><a href="learn.html"><span>Learn</span> <i
@@ -189,13 +246,19 @@
     <!-- Events Section -->
     <section id="events" class="features section">
       <div class="container section-title" data-aos="fade-up">
-        <h2>Denmark Carrom Events Schedule</h2>
-        <p>The Denmark Carrom Federation, in collaboration with its associated Carrom clubs throughout Denmark, hosts a
-          variety of tournaments annually, including Regional, National, Ranking, and International events.</p>
+        <h2>Carrom Events Schedule</h2>
+        <p>We keep track of carrom tournaments happening in all over Europe countries and do our best to have them
+          added to our calendar. The Denmark Carrom Federation, in collaboration with its associated Carrom clubs
+          throughout Denmark, hosts a variety of tournaments annually, including Regional, National, Ranking, and
+          International events.</p>
       </div>
       <div class="container">
         <div class="row">
-          <div class="col-12">
+          <div class="col-8">
+            <script src="https://static.elfsight.com/platform/platform.js" async></script>
+            <div class="elfsight-app-b21579e2-afa9-4e28-bf4b-6e07aab9fd05" data-elfsight-app-lazy></div>
+          </div>
+          <div class="col-4">
             <div class="event_calendar"></div>
           </div>
         </div>
@@ -242,7 +305,6 @@
             <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#services">Programs</a></li>
             <li><a href="index.html#coaching">Coaching</a></li>
-            <li><a href="news.html">News</a></li>
             <li><a href="events.html">Events</a></li>
           </ul>
         </div>

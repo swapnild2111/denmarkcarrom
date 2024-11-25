@@ -1,25 +1,5 @@
 {
-    "2024": [
-        {
-            "date": "16",
-            "day": "Saturday",
-            "month": "March",
-            "year": "2024",
-            "title": "Denmark International Singles Carrom Tournament 2024",
-            "link": "https://www.facebook.com/events/1078738533177062",
-            "description": "Open carrom tournament to invite all players in Europe",
-            "result": "https://sol5.metapensiero.it/lit/championship/7ca1d5dddc0011ee898d6162688db8a6"
-        },
-        {
-            "date": "16",
-            "day": "Saturday",
-            "month": "March",
-            "year": "2024",
-            "title": "Denmark International Doubles Carrom Tournament 2024",
-            "link": "https://www.facebook.com/events/1078738533177062",
-            "description": "Open carrom tournament to invite all players in Europe",
-            "result": "https://sol5.metapensiero.it/lit/championship/30b33cbedd6211eeb52a6162688db8a6"
-        },
+    "events": [
         {
             "date": "21",
             "day": "Saturday",
@@ -48,10 +28,10 @@
             "title": "Copenhagen Ranking Tournament - 3",
             "link": "https://fb.me/e/84fvEGCSp",
             "description": "Copenhagen carrom ranking tournament",
-            "result": "-"
+            "result": "https://sol5.metapensiero.it/lit/tourney/dcb87afaa8da11ef9d5fe32b4f21a210"
         },
         {
-            "date": "21",
+            "date": "14",
             "day": "Saturday",
             "month": "December",
             "year": "2024",
@@ -59,9 +39,7 @@
             "link": "https://fb.me/e/BJbUF2cJ4",
             "description": "Copenhagen carrom ranking tournament",
             "result": "-"
-        }
-    ],
-    "2025": [
+        },
         {
             "date": "18",
             "day": "Saturday",
@@ -80,26 +58,6 @@
             "title": "Copenhagen Ranking Tournament - 6",
             "link": "https://fb.me/e/4MTUZQtbd",
             "description": "Copenhagen carrom ranking tournament",
-            "result": "-"
-        },
-        {
-            "date": "1",
-            "day": "Saturday",
-            "month": "March",
-            "year": "2025",
-            "title": "Denmark International Singles Carrom tournament 2025",
-            "link": "https://fb.me/e/5H9wqNiji",
-            "description": "Open carrom tournament to invite all players in Europe",
-            "result": "-"
-        },
-        {
-            "date": "2",
-            "day": "Sunday",
-            "month": "March",
-            "year": "2025",
-            "title": "Denmark International Doubles Carrom tournament 2025",
-            "link": "https://fb.me/e/5H9wqNiji",
-            "description": "Open carrom tournament to invite all players in Europe",
             "result": "-"
         },
         {
