@@ -43,7 +43,7 @@
   </script>
 
   <!-- Dynamic event generation -->
-  <script>
+  <!-- <script>
     function populateDKCFevents(data) {
       const contentDiv = document.querySelector('.event_calendar');
       contentDiv.innerHTML = '';  // Clear previous content if any
@@ -192,7 +192,7 @@
       })
       .catch((error) =>
         console.error("Unable to fetch data:", error));
-  </script>
+  </script> -->
 
   <!-- =======================================================
   * Template Name: QuickStart
@@ -245,7 +245,7 @@
 
     <!-- Events Section -->
     <section id="events" class="features section">
-      <div class="container section-title" data-aos="fade-up">
+      <div class="container section-title" style="padding-bottom: 0px;" data-aos="fade-up">
         <h2>Carrom Events Schedule</h2>
         <p>We keep track of carrom tournaments happening in all over Europe countries and do our best to have them
           added to our calendar. The Denmark Carrom Federation, in collaboration with its associated Carrom clubs
@@ -254,14 +254,16 @@
       </div>
       <div class="container">
         <div class="row">
-          <div class="col-8">
+          <div class="col-12">
             <script src="https://static.elfsight.com/platform/platform.js" async></script>
-            <div class="elfsight-app-b21579e2-afa9-4e28-bf4b-6e07aab9fd05" data-elfsight-app-lazy></div>
-          </div>
-          <div class="col-4">
-            <div class="event_calendar"></div>
+            <div class="elfsight-app-8892b1c9-acfd-47bb-91eb-50522bcf71ff" data-elfsight-app-lazy></div>
           </div>
         </div>
+        <!-- <div class="row">
+          <div class="col-12">
+            <div class="event_calendar"></div>
+          </div>
+        </div> -->
       </div>
     </section>
 
