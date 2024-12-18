@@ -43,7 +43,7 @@
   </script>
 
   <!-- Dynamic event generation -->
-  <!-- <script>
+  <script>
     function populateDKCFevents(data) {
       const contentDiv = document.querySelector('.event_calendar');
       contentDiv.innerHTML = '';  // Clear previous content if any
@@ -159,7 +159,7 @@
           return
         }
 
-        if (result != "-") {
+        if (result.includes("sol5")) {
           result = '<a href="' + result + '" target="_blank"><div class="fs-3 mb-2"><i class="bi bi-cloud-arrow-down-fill"></i></div></a>'
           eventRow = '<tr>'
         }
@@ -192,7 +192,7 @@
       })
       .catch((error) =>
         console.error("Unable to fetch data:", error));
-  </script> -->
+  </script>
 
   <!-- =======================================================
   * Template Name: QuickStart
@@ -252,18 +252,13 @@
           throughout Denmark, hosts a variety of tournaments annually, including Regional, National, Ranking, and
           International events.</p>
       </div>
+      <br /><br />
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <script src="https://static.elfsight.com/platform/platform.js" async></script>
-            <div class="elfsight-app-8892b1c9-acfd-47bb-91eb-50522bcf71ff" data-elfsight-app-lazy></div>
-          </div>
-        </div>
-        <!-- <div class="row">
-          <div class="col-12">
             <div class="event_calendar"></div>
           </div>
-        </div> -->
+        </div>
       </div>
     </section>
 
