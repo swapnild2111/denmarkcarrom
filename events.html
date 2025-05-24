@@ -116,11 +116,11 @@
         }
 
         if (result != "-") {
-          result = '<a href="' + result + '" target="_blank"><div class="fs-3 mb-2"><i class="bi bi-cloud-arrow-down-fill"></i></div></a>'
+          result = '<a href="' + result + '" target="_blank" rel="noopener noreferrer"><div class="fs-3 mb-2"><i class="bi bi-cloud-arrow-down-fill"></i></div></a>'
           eventRow = '<tr>'
         }
         if (link != "") {
-          eventLink = '<a href="' + link + '" target="_blank">' + title + '</a>'
+          eventLink = '<a href="' + link + '" target="_blank" rel="noopener noreferrer">' + title + '</a>'
         }
         var event =
           eventRow +
@@ -160,11 +160,11 @@
         }
 
         if (result.includes("sol5")) {
-          result = '<a href="' + result + '" target="_blank"><div class="fs-3 mb-2"><i class="bi bi-cloud-arrow-down-fill"></i></div></a>'
+          result = '<a href="' + result + '" target="_blank" rel="noopener noreferrer"><div class="fs-3 mb-2"><i class="bi bi-cloud-arrow-down-fill"></i></div></a>'
           eventRow = '<tr>'
         }
         if (link != "") {
-          eventLink = '<a href="' + link + '" target="_blank">' + title + '</a>'
+          eventLink = '<a href="' + link + '" target="_blank" rel="noopener noreferrer">' + title + '</a>'
         }
         var event =
           eventRow +
@@ -319,7 +319,7 @@
         <div class="col-lg-4 col-md-12 footer-newsletter">
           <h4>Our Newsletter</h4>
           <p>Subscribe to our newsletter and receive the latest news about carrom & events happening in Europe!</p>
-          <form action="https://carrom.us22.list-manage.com/subscribe/post?u=6f88967f87622a96cdae61d76&amp;id=de82ebd48f&amp;f_id=005bc5e1f0" method="post" class="php-email-form" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+          <form action="https://carrom.us22.list-manage.com/subscribe/post?u=6f88967f87622a96cdae61d76&amp;id=de82ebd48f&amp;f_id=005bc5e1f0" method="post" class="php-email-form" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" rel="noopener noreferrer">
             <div class="newsletter-form"><input type="email" name="EMAIL"><input type="submit" id="mc-embedded-subscribe" value="Subscribe"></div>
             <div class="loading">Loading</div>
             <div class="error-message"></div>

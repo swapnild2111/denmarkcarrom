@@ -178,7 +178,7 @@
         <div class="col-lg-4 col-md-12 footer-newsletter">
           <h4>Our Newsletter</h4>
           <p>Subscribe to our newsletter and receive the latest news about carrom & events happening in Europe!</p>
-          <form action="https://carrom.us22.list-manage.com/subscribe/post?u=6f88967f87622a96cdae61d76&amp;id=de82ebd48f&amp;f_id=005bc5e1f0" method="post" class="php-email-form" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+          <form action="https://carrom.us22.list-manage.com/subscribe/post?u=6f88967f87622a96cdae61d76&amp;id=de82ebd48f&amp;f_id=005bc5e1f0" method="post" class="php-email-form" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" rel="noopener noreferrer">
             <div class="newsletter-form"><input type="email" name="EMAIL"><input type="submit" id="mc-embedded-subscribe" value="Subscribe"></div>
             <div class="loading">Loading</div>
             <div class="error-message"></div>
@@ -295,7 +295,7 @@
 
           // Create link for the video
           var videoItemDivInnerHTML =
-            '<a data-fancybox target="_blank" href="' + video.video_url + '" class="featured-video">' +
+            '<a data-fancybox target="_blank" rel="noopener noreferrer" href="' + video.video_url + '" class="featured-video">' +
             '<figure style="background-image: url(' + video.thumbnail_image + ');">' +
             '<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/video-thumb-placeholder-16-9.png" />' +
             '<figcaption>' + video.title + '</figcaption>' +
