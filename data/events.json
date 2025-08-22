@@ -1,6 +1,26 @@
 {
     "events": [
         {
+            "date": "14",
+            "day": "Saturday",
+            "month": "March",
+            "year": "2026",
+            "title": "Denmark International Singles Carrom tournament 2026 (Details coming soon)",
+            "link": "",
+            "description": "Open carrom tournament to invite all players in Europe",
+            "result": "-"
+        },
+        {
+            "date": "15",
+            "day": "Sunday",
+            "month": "March",
+            "year": "2026",
+            "title": "Denmark International Doubles Carrom tournament 2026 (Details coming soon)",
+            "link": "",
+            "description": "Open carrom tournament to invite all players in Europe",
+            "result": "-"
+        },
+        {
             "date": "23",
             "day": "Saturday",
             "month": "August",
