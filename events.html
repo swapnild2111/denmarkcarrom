@@ -123,7 +123,7 @@
         var desc = eventEntry.description;
         var result = eventEntry.result;
         var eventRow = '<tr>'
-        var eventLink = '<strong>' + title + '</strong>' // Make title bold
+        var eventWithDesc = ''
 
         if (result != "-") {
           return
@@ -134,20 +134,11 @@
           eventRow = '<tr>'
         }
 
-        eventLink = '<strong>' + title + '</strong></a>'
-
-        // Truncate description if it's too long
-        var displayDesc = desc && desc.length > 150 ? desc.substring(0, 150) + '...' : desc || '';
-
-        // Create event title with description and Facebook link below
-        var eventWithDesc = eventLink;
-        if (displayDesc) {
-          eventWithDesc += '<br><div style="margin-top: 6px;"><span class="text-muted">' + displayDesc + '</span></div>';
-        }
-        if (link !== "" && link) {
-          eventWithDesc += '<div style="margin-top: 4px;"><a href="' + link + '" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i> Event Details</a></div>';
+        // Create event title with Facebook event link
+        if (link !== "") {
+          eventWithDesc = '<strong><a href="' + link + '" target="_blank" rel="noopener noreferrer">' + title + '</strong></a>';
         } else {
-          eventWithDesc += '<div style="margin-top: 4px;"><i class="bi bi-facebook"></i> Event Details ..coming soon..</div>';
+          eventWithDesc = '<span class="text-muted">' + title + '</span>';
         }
 
         var event =
@@ -181,7 +172,7 @@
         var desc = eventEntry.description;
         var result = eventEntry.result;
         var eventRow = '<tr>'
-        var eventLink = '<strong>' + title + '</strong>' // Make title bold
+        var eventWithDesc = ''
 
         if (result == "-") {
           return
@@ -193,18 +184,11 @@
         }
         eventLink = '<strong>' + title + '</strong>'
 
-        // Truncate description if it's too long
-        var displayDesc = desc && desc.length > 150 ? desc.substring(0, 150) + '...' : desc || '';
-
-        // Create event title with description and Facebook link below
-        var eventWithDesc = eventLink;
-        if (displayDesc) {
-          eventWithDesc += '<br><div style="margin-top: 6px;"><span class="text-muted">' + displayDesc + '</span></div>';
-        }
-        if (link !== "" && link) {
-          eventWithDesc += '<div style="margin-top: 4px;"><a href="' + link + '" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i> Event Details</a></div>';
+        // Create event title with Facebook event link
+        if (link !== "") {
+          eventWithDesc = '<strong><a href="' + link + '" target="_blank" rel="noopener noreferrer">' + title + '</strong></a>';
         } else {
-          eventWithDesc += '<div style="margin-top: 4px;"><i class="bi bi-facebook"></i> Event Details ..coming soon..</div>';
+          eventWithDesc = '<span class="text-muted">' + title + '</span>';
         }
 
         var event =
