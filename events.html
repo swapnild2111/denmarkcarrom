@@ -97,7 +97,21 @@
         '<tbody>'
 
       var currentYear = new Date().getFullYear();
-      events.sort()
+      // Sort events by date (nearest upcoming events first)
+      events.sort((a, b) => {
+        // Convert month names to numbers
+        const monthMap = {
+          'January': 0, 'February': 1, 'March': 2, 'April': 3,
+          'May': 4, 'June': 5, 'July': 6, 'August': 7,
+          'September': 8, 'October': 9, 'November': 10, 'December': 11
+        };
+
+        // Create Date objects for comparison
+        const dateA = new Date(parseInt(a.year), monthMap[a.month], parseInt(a.date));
+        const dateB = new Date(parseInt(b.year), monthMap[b.month], parseInt(b.date));
+
+        return dateA - dateB; // Ascending order (earliest first)
+      });
 
       events.forEach(eventEntry => {
         var date = eventEntry.date;
@@ -109,7 +123,7 @@
         var desc = eventEntry.description;
         var result = eventEntry.result;
         var eventRow = '<tr>'
-        var eventLink = title
+        var eventLink = '<strong>' + title + '</strong>' // Make title bold
 
         if (result != "-") {
           return
@@ -119,13 +133,27 @@
           result = '<a href="' + result + '" target="_blank" rel="noopener noreferrer"><div class="fs-3 mb-2"><i class="bi bi-cloud-arrow-down-fill"></i></div></a>'
           eventRow = '<tr>'
         }
-        if (link != "") {
-          eventLink = '<a href="' + link + '" target="_blank" rel="noopener noreferrer">' + title + '</a>'
+
+        eventLink = '<strong>' + title + '</strong></a>'
+
+        // Truncate description if it's too long
+        var displayDesc = desc && desc.length > 150 ? desc.substring(0, 150) + '...' : desc || '';
+
+        // Create event title with description and Facebook link below
+        var eventWithDesc = eventLink;
+        if (displayDesc) {
+          eventWithDesc += '<br><div style="margin-top: 6px;"><span class="text-muted">' + displayDesc + '</span></div>';
         }
+        if (link !== "" && link) {
+          eventWithDesc += '<div style="margin-top: 4px;"><a href="' + link + '" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i> Event Details</a></div>';
+        } else {
+          eventWithDesc += '<div style="margin-top: 4px;"><i class="bi bi-facebook"></i> Event Details ..coming soon..</div>';
+        }
+
         var event =
           eventRow +
           '<td scope="row"><b>' + date + '-' + month + '-' + yearNumber + '</b> <div class="subtext">(' + day + ')</div></td>' +
-          '<td>' + eventLink + '</td>' +
+          '<td>' + eventWithDesc + '</td>' +
           '<td>' + result + '</td>' +
           '</tr>'
         upcomingTableHtml += event;
@@ -153,7 +181,7 @@
         var desc = eventEntry.description;
         var result = eventEntry.result;
         var eventRow = '<tr>'
-        var eventLink = title
+        var eventLink = '<strong>' + title + '</strong>' // Make title bold
 
         if (result == "-") {
           return
@@ -163,13 +191,26 @@
           result = '<a href="' + result + '" target="_blank" rel="noopener noreferrer"><div class="fs-3 mb-2"><i class="bi bi-cloud-arrow-down-fill"></i></div></a>'
           eventRow = '<tr>'
         }
-        if (link != "") {
-          eventLink = '<a href="' + link + '" target="_blank" rel="noopener noreferrer">' + title + '</a>'
+        eventLink = '<strong>' + title + '</strong>'
+
+        // Truncate description if it's too long
+        var displayDesc = desc && desc.length > 150 ? desc.substring(0, 150) + '...' : desc || '';
+
+        // Create event title with description and Facebook link below
+        var eventWithDesc = eventLink;
+        if (displayDesc) {
+          eventWithDesc += '<br><div style="margin-top: 6px;"><span class="text-muted">' + displayDesc + '</span></div>';
         }
+        if (link !== "" && link) {
+          eventWithDesc += '<div style="margin-top: 4px;"><a href="' + link + '" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i> Event Details</a></div>';
+        } else {
+          eventWithDesc += '<div style="margin-top: 4px;"><i class="bi bi-facebook"></i> Event Details ..coming soon..</div>';
+        }
+
         var event =
           eventRow +
           '<td scope="row"><b>' + date + '-' + month + '-' + yearNumber + '</b> <div class="subtext">(' + day + ')</div></td>' +
-          '<td>' + eventLink + '</td>' +
+          '<td>' + eventWithDesc + '</td>' +
           '<td>' + result + '</td>' +
           '</tr>'
         pastTableHtml += event;
