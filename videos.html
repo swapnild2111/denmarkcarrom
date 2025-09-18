@@ -195,6 +195,7 @@
     <div class="container copyright text-center mt-4">
       <p>© <span>Copyright</span> <strong class="px-1 sitename">Denmark Carrom Federation</strong><span>All Rights
           Reserved</span></p>
+      <p><strong>Non-profit Organization (CVR: 45196798)</strong></p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
@@ -276,13 +277,13 @@
         const info = document.createElement('section');
         info.className = 'team section';
         info.style = 'padding: 0px;';
-        info.innerHTML = '<div class="team-member d-flex align-items-start" style="opacity: 1 !important; transform: none !important; transition: none !important;">'+
-              '<div class="pic"><img loading="lazy" src="'+category.photo+'" class="img-fluid" alt=""></div>'+
-              '<div class="member-info">'+
-                '<h4>'+category.name+'</h4>'+
-                '<p>'+category.description+'</p>'+
-              '</div>'+
-            '</div>'
+        info.innerHTML = '<div class="team-member d-flex align-items-start" style="opacity: 1 !important; transform: none !important; transition: none !important;">' +
+          '<div class="pic"><img loading="lazy" src="' + category.photo + '" class="img-fluid" alt=""></div>' +
+          '<div class="member-info">' +
+          '<h4>' + category.name + '</h4>' +
+          '<p>' + category.description + '</p>' +
+          '</div>' +
+          '</div>'
         categoryDiv.appendChild(info);
 
         // Create UL for list
