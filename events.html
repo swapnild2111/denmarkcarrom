@@ -4,9 +4,12 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>DKCF | Denmark Carrom Federation | Events</title>
-  <meta content="Denmark Carrom Federation, Europe Carrom" name="description">
-  <meta content="Carrom, Board games, Denmark, Europe, Indian games, Carrom Federation" name="yearwords">
+  <title>Events - Denmark Carrom</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- FontAwesome 4.7.0 for social media icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- Favicons -->
   <link href="assets/img/favicon-32x32.svg" rel="icon">
@@ -77,21 +80,23 @@
       document.getElementById('col-past-dkcf').appendChild(past_dkcf_event_calendar_heading);
 
       var upcoming_calendar = document.createElement('div');
-      upcoming_calendar.className = 'card-body no-padding';
+      upcoming_calendar.className = 'card-body';
       upcoming_calendar.id = 'upcoming-dkcf-content';
+      upcoming_calendar.style = 'padding: 20px;';
       document.getElementById('upcoming-dkcf-list').appendChild(upcoming_calendar);
 
       var past_calendar = document.createElement('div');
-      past_calendar.className = 'card-body no-padding';
+      past_calendar.className = 'card-body';
       past_calendar.id = 'past-dkcf-content';
+      past_calendar.style = 'padding: 20px;';
       document.getElementById('past-dkcf-list').appendChild(past_calendar);
 
-      var upcomingTableHtml = '<table class="table table-hover">' +
+      var upcomingTableHtml = '<table class="table table-hover table-sm" style="table-layout: fixed; width: 100%;">' +
         '<thead>' +
         '<tr>' +
-        '<th scope="col">Date</th>' +
-        '<th scope="col">Event</th>' +
-        '<th scope="col">Results</th>' +
+        '<th scope="col" style="width: 25%;">Date</th>' +
+        '<th scope="col" style="width: 60%;">Event</th>' +
+        '<th scope="col" style="width: 15%; text-align: center;">Results</th>' +
         '</tr>' +
         '</thead>' +
         '<tbody>'
@@ -120,6 +125,7 @@
         var yearNumber = eventEntry.year;
         var title = eventEntry.title;
         var link = eventEntry.link;
+        var youtube = eventEntry.youtube;
         var desc = eventEntry.description;
         var result = eventEntry.result;
         var eventRow = '<tr>'
@@ -134,74 +140,210 @@
           eventRow = '<tr>'
         }
 
-        // Create event title with Facebook event link
+        // Create event title
         if (link !== "") {
           eventWithDesc = '<strong><a href="' + link + '" target="_blank" rel="noopener noreferrer">' + title + '</strong></a>';
         } else {
-          eventWithDesc = '<span class="text-muted">' + title + '</span>';
+          eventWithDesc = '<strong>' + title + '</strong>';
+        }
+
+        // Add social media icons (with greyed out icons for missing links)
+        var socialIcons = '';
+
+        // Facebook icon - active link or greyed out
+        if (link !== "" && link) {
+          socialIcons += '<a href="' + link + '" target="_blank" rel="noopener noreferrer" class="text-primary me-3" style="font-size: 1.2rem;" title="Facebook Event"><i class="fa fa-facebook-official"></i></a>';
+        } else {
+          socialIcons += '<span class="text-muted me-3" style="font-size: 1.2rem;" title="No Facebook Event"><i class="fa fa-facebook-official"></i></span>';
+        }
+
+        // YouTube icon - active link or greyed out
+        if (youtube !== "" && youtube) {
+          socialIcons += '<a href="' + youtube + '" target="_blank" rel="noopener noreferrer" class="text-danger" style="font-size: 1.2rem;" title="YouTube Video"><i class="fa fa-youtube-play"></i></a>';
+        } else {
+          socialIcons += '<span class="text-muted" style="font-size: 1.2rem;" title="No YouTube Video"><i class="fa fa-youtube-play"></i></span>';
+        }
+
+        if (socialIcons) {
+          eventWithDesc += '<br><div style="margin-top: 6px;">' + socialIcons + '</div>';
         }
 
         var event =
           eventRow +
-          '<td scope="row"><b>' + date + '-' + month + '-' + yearNumber + '</b> <div class="subtext">(' + day + ')</div></td>' +
-          '<td>' + eventWithDesc + '</td>' +
-          '<td>' + result + '</td>' +
+          '<td scope="row" style="word-wrap: break-word;"><b>' + date + '-' + month + '-' + yearNumber + '</b> <div class="subtext">(' + day + ')</div></td>' +
+          '<td style="word-wrap: break-word;">' + eventWithDesc + '</td>' +
+          '<td style="word-wrap: break-word; text-align: center; vertical-align: middle;">' + result + '</td>' +
           '</tr>'
         upcomingTableHtml += event;
       });
       upcomingTableHtml += '</tbody></table>'
       document.getElementById('upcoming-dkcf-content').innerHTML += upcomingTableHtml
 
-      var pastTableHtml = '<table class="table table-hover">' +
+      var upcomingTableHtml = '<table class="table table-hover table-sm" style="table-layout: fixed; width: 100%;">' +
         '<thead>' +
         '<tr>' +
-        '<th scope="col">Date</th>' +
-        '<th scope="col">Event</th>' +
-        '<th scope="col">Results</th>' +
+        '<th scope="col" style="width: 25%;">Date</th>' +
+        '<th scope="col" style="width: 60%;">Event</th>' +
+        '<th scope="col" style="width: 15%;">Results</th>' +
         '</tr>' +
         '</thead>' +
         '<tbody>'
 
-      events.forEach(eventEntry => {
-        var date = eventEntry.date;
-        var day = eventEntry.day;
-        var month = eventEntry.month;
-        var yearNumber = eventEntry.year;
-        var title = eventEntry.title;
-        var link = eventEntry.link;
-        var desc = eventEntry.description;
-        var result = eventEntry.result;
-        var eventRow = '<tr>'
-        var eventWithDesc = ''
+      // Group past events by year and create separate tables
+      var pastEventsByYear = {};
 
-        if (result == "-") {
-          return
-        }
+      // Create a copy of events array and sort in descending order for past events (most recent first)
+      var pastEvents = [...events].sort((a, b) => {
+        // Convert month names to numbers
+        const monthMap = {
+          'January': 0, 'February': 1, 'March': 2, 'April': 3,
+          'May': 4, 'June': 5, 'July': 6, 'August': 7,
+          'September': 8, 'October': 9, 'November': 10, 'December': 11
+        };
 
-        if (result.includes("sol5")) {
-          result = '<a href="' + result + '" target="_blank" rel="noopener noreferrer"><div class="fs-3 mb-2"><i class="bi bi-cloud-arrow-down-fill"></i></div></a>'
-          eventRow = '<tr>'
-        }
-        eventLink = '<strong>' + title + '</strong>'
+        // Create Date objects for comparison
+        const dateA = new Date(parseInt(a.year), monthMap[a.month], parseInt(a.date));
+        const dateB = new Date(parseInt(b.year), monthMap[b.month], parseInt(b.date));
 
-        // Create event title with Facebook event link
-        if (link !== "") {
-          eventWithDesc = '<strong><a href="' + link + '" target="_blank" rel="noopener noreferrer">' + title + '</strong></a>';
-        } else {
-          eventWithDesc = '<span class="text-muted">' + title + '</span>';
-        }
-
-        var event =
-          eventRow +
-          '<td scope="row"><b>' + date + '-' + month + '-' + yearNumber + '</b> <div class="subtext">(' + day + ')</div></td>' +
-          '<td>' + eventWithDesc + '</td>' +
-          '<td>' + result + '</td>' +
-          '</tr>'
-        pastTableHtml += event;
+        return dateB - dateA; // Descending order (most recent first)
       });
-      pastTableHtml += '</tbody></table>'
-      document.getElementById('past-dkcf-content').innerHTML += pastTableHtml
 
+      // Filter and group past events by year
+      pastEvents.forEach(eventEntry => {
+        if (eventEntry.result !== "-") {
+          if (!pastEventsByYear[eventEntry.year]) {
+            pastEventsByYear[eventEntry.year] = [];
+          }
+          pastEventsByYear[eventEntry.year].push(eventEntry);
+        }
+      });
+
+      // Sort years in descending order (most recent year first)
+      var sortedYears = Object.keys(pastEventsByYear).sort((a, b) => parseInt(b) - parseInt(a));
+
+      var allPastTablesHtml = '';
+
+      sortedYears.forEach((year, index) => {
+        var yearEvents = pastEventsByYear[year];
+        var isCollapsed = 'true'; // Collapse all sections by default
+        var showClass = ''; // Don't show any sections by default
+
+        // Create year section with light border and collapsible functionality
+        allPastTablesHtml += '<div class="year-group mb-3" style="border: 1px solid #e9ecef; border-radius: 8px; padding: 12px 20px; background-color: #fdfdfe;">';
+
+        // Collapsible header
+        allPastTablesHtml += '<h5 class="year-header mb-0" style="color: #495057; font-weight: 600; cursor: pointer; padding: 4px 0;" ' +
+          'data-bs-toggle="collapse" data-bs-target="#year-' + year + '" aria-expanded="false" aria-controls="year-' + year + '">' +
+          '<i class="bi bi-chevron-right me-2" id="chevron-' + year + '"></i>Events ' + year +
+          ' <small class="text-muted">(' + yearEvents.length + ' events)</small>' +
+          '</h5>';
+
+        // Collapsible content
+        allPastTablesHtml += '<div class="collapse ' + showClass + '" id="year-' + year + '" style="padding-top: 15px;">';
+
+        allPastTablesHtml += '<table class="table table-hover table-sm" style="table-layout: fixed; width: 100%;">' +
+          '<thead>' +
+          '<tr>' +
+          '<th scope="col" style="width: 25%;">Date</th>' +
+          '<th scope="col" style="width: 60%;">Event</th>' +
+          '<th scope="col" style="width: 15%; text-align: center;">Results</th>' +
+          '</tr>' +
+          '</thead>' +
+          '<tbody>';
+
+        yearEvents.forEach(eventEntry => {
+          var date = eventEntry.date;
+          var day = eventEntry.day;
+          var month = eventEntry.month;
+          var yearNumber = eventEntry.year;
+          var title = eventEntry.title;
+          var link = eventEntry.link;
+          var youtube = eventEntry.youtube;
+          var desc = eventEntry.description;
+          var result = eventEntry.result;
+          var eventRow = '<tr>';
+          var eventWithDesc = '';
+
+          if (result.includes("sol5")) {
+            result = '<a href="' + result + '" target="_blank" rel="noopener noreferrer"><div class="fs-3 mb-2"><i class="bi bi-cloud-arrow-down-fill"></i></div></a>';
+          } else if (result === "Cancelled") {
+            result = '<i class="bi bi-x-square" style="font-size: 1.1rem;" title="Cancelled"></i>';
+          }
+
+          // Create event title
+          if (link !== "") {
+            eventWithDesc = '<strong><a href="' + link + '" target="_blank" rel="noopener noreferrer">' + title + '</a></strong>';
+          } else {
+            eventWithDesc = '<strong>' + title + '</strong>';
+          }
+
+          // Add social media icons (with greyed out icons for missing links)
+          var socialIcons = '';
+
+          // Facebook icon - active link or greyed out
+          if (link !== "" && link) {
+            socialIcons += '<a href="' + link + '" target="_blank" rel="noopener noreferrer" class="text-primary me-3" style="font-size: 1.2rem;" title="Facebook Event"><i class="fa fa-facebook-official"></i></a>';
+          } else {
+            socialIcons += '<span class="text-muted me-3" style="font-size: 1.2rem;" title="No Facebook Event"><i class="fa fa-facebook-official"></i></span>';
+          }
+
+          // YouTube icon - active link or greyed out
+          if (youtube !== "" && youtube) {
+            socialIcons += '<a href="' + youtube + '" target="_blank" rel="noopener noreferrer" class="text-danger" style="font-size: 1.2rem;" title="YouTube Video"><i class="fa fa-youtube-play"></i></a>';
+          } else {
+            socialIcons += '<span class="text-muted" style="font-size: 1.2rem;" title="No YouTube Video"><i class="fa fa-youtube-play"></i></span>';
+          }
+
+          if (socialIcons) {
+            eventWithDesc += '<br><div style="margin-top: 6px;">' + socialIcons + '</div>';
+          }
+
+          var event =
+            eventRow +
+            '<td scope="row" style="word-wrap: break-word;"><b>' + date + '-' + month + '-' + yearNumber + '</b> <div class="subtext">(' + day + ')</div></td>' +
+            '<td style="word-wrap: break-word;">' + eventWithDesc + '</td>' +
+            '<td style="word-wrap: break-word; text-align: center; vertical-align: middle;">' + result + '</td>' +
+            '</tr>';
+
+          allPastTablesHtml += event;
+        });
+
+        allPastTablesHtml += '</tbody></table>';
+        allPastTablesHtml += '</div>'; // Close collapse div
+        allPastTablesHtml += '</div>'; // Close year-group div
+      });
+
+      document.getElementById('past-dkcf-content').innerHTML = allPastTablesHtml;
+
+      // Add event listeners for chevron rotation based on collapse state
+      setTimeout(() => {
+        // Get all collapse elements
+        var collapseElements = document.querySelectorAll('[id^="year-"]');
+
+        collapseElements.forEach(function (collapseEl) {
+          var year = collapseEl.id.replace('year-', '');
+          var chevron = document.querySelector('#chevron-' + year);
+          var header = document.querySelector('[data-bs-target="#' + collapseEl.id + '"]');
+
+          // Set initial icon state (collapsed by default, so chevron points right)
+          if (chevron) {
+            chevron.className = 'bi bi-chevron-right me-2';
+          }
+
+          // Listen for Bootstrap collapse events
+          collapseEl.addEventListener('show.bs.collapse', function () {
+            if (chevron) {
+              chevron.className = 'bi bi-chevron-down me-2';
+            }
+          });
+
+          collapseEl.addEventListener('hide.bs.collapse', function () {
+            if (chevron) {
+              chevron.className = 'bi bi-chevron-right me-2';
+            }
+          });
+        });
+      }, 100);
     }
 
     fetch("./data/events.json")
@@ -226,6 +368,8 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <!-- FontAwesome 4.7.0 for social media icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body class="index-page">
